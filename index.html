@@ -5,14 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Claude AI Marketing Implementation Guide | TaylorMade Golf</title>
     
-    <!-- Google Fonts - Professional sans-serif stack -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700;1,800&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
     
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
     <style>
         :root {
-            /* TaylorMade Brand Colors */
             --tm-black: #000000;
             --tm-white: #FFFFFF;
             --tm-red: #E60012;
@@ -27,12 +29,10 @@
             --tm-gray-800: #1A1A1A;
             --tm-gray-900: #0D0D0D;
             
-            /* Typography */
             --font-display: 'Archivo Black', 'Impact', sans-serif;
             --font-heading: 'Barlow Condensed', 'Helvetica Neue', sans-serif;
             --font-body: 'Barlow', 'Helvetica Neue', Arial, sans-serif;
             
-            /* Spacing */
             --space-xs: 4px;
             --space-sm: 8px;
             --space-md: 16px;
@@ -40,27 +40,17 @@
             --space-xl: 32px;
             --space-2xl: 48px;
             --space-3xl: 64px;
-            --space-4xl: 96px;
             
-            /* Layout */
             --sidebar-width: 280px;
             --header-height: 64px;
             --content-max-width: 900px;
             
-            /* Transitions */
             --transition-fast: 150ms ease;
             --transition-base: 250ms ease;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         
         body {
             font-family: var(--font-body);
@@ -71,9 +61,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* ========================================
-           HEADER
-        ======================================== */
+        /* HEADER */
         .site-header {
             position: fixed;
             top: 0;
@@ -100,14 +88,6 @@
             display: flex;
             align-items: center;
             gap: var(--space-lg);
-        }
-
-        .logo {
-            font-family: var(--font-display);
-            font-size: 20px;
-            color: var(--tm-white);
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
         }
 
         .logo-divider {
@@ -137,18 +117,14 @@
             letter-spacing: 0.5px;
         }
 
-        /* ========================================
-           LAYOUT
-        ======================================== */
+        /* LAYOUT */
         .main-layout {
             display: flex;
             padding-top: var(--header-height);
             min-height: 100vh;
         }
 
-        /* ========================================
-           SIDEBAR
-        ======================================== */
+        /* SIDEBAR */
         .sidebar {
             position: fixed;
             top: var(--header-height);
@@ -159,6 +135,7 @@
             border-right: 1px solid var(--tm-gray-200);
             overflow-y: auto;
             padding: var(--space-lg) 0;
+            transition: transform var(--transition-base);
         }
 
         .sidebar-section {
@@ -205,9 +182,15 @@
         }
 
         .nav-icon {
-            font-size: 16px;
-            width: 20px;
-            text-align: center;
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        .nav-icon-img {
+            width: 18px;
+            height: 18px;
+            object-fit: contain;
         }
 
         .nav-badge {
@@ -222,13 +205,12 @@
             margin-left: auto;
         }
 
-        /* ========================================
-           MAIN CONTENT
-        ======================================== */
+        /* MAIN CONTENT */
         .main-content {
             margin-left: var(--sidebar-width);
             flex: 1;
             padding: var(--space-2xl) var(--space-3xl);
+            transition: margin-left var(--transition-base);
         }
 
         .content-wrapper {
@@ -250,9 +232,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ========================================
-           TYPOGRAPHY
-        ======================================== */
+        /* TYPOGRAPHY */
         .section-title {
             font-family: var(--font-display);
             font-size: 36px;
@@ -300,9 +280,11 @@
             font-weight: 600;
         }
 
-        /* ========================================
-           CARDS & CONTAINERS
-        ======================================== */
+        a {
+            color: var(--tm-red);
+        }
+
+        /* CARDS */
         .card {
             background: var(--tm-white);
             border-radius: 8px;
@@ -318,18 +300,14 @@
             border: none;
         }
 
-        .card-dark p {
-            color: var(--tm-gray-300);
-        }
-
-        .card-dark h3 {
-            color: var(--tm-white);
-        }
+        .card-dark p { color: var(--tm-gray-300); }
+        .card-dark h3 { color: var(--tm-white); }
 
         .card-accent {
             border-left: 4px solid var(--tm-red);
         }
 
+        /* STATS */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -360,9 +338,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* ========================================
-           TABLES
-        ======================================== */
+        /* TABLES */
         .table-wrapper {
             overflow-x: auto;
             margin: var(--space-lg) 0;
@@ -394,13 +370,8 @@
             color: var(--tm-gray-600);
         }
 
-        tr:last-child td {
-            border-bottom: none;
-        }
-
-        tr:hover td {
-            background: var(--tm-gray-100);
-        }
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background: var(--tm-gray-100); }
 
         .badge {
             display: inline-block;
@@ -411,24 +382,10 @@
             text-transform: uppercase;
         }
 
-        .badge-red {
-            background: var(--tm-red);
-            color: var(--tm-white);
-        }
+        .badge-red { background: var(--tm-red); color: var(--tm-white); }
+        .badge-black { background: var(--tm-black); color: var(--tm-white); }
 
-        .badge-black {
-            background: var(--tm-black);
-            color: var(--tm-white);
-        }
-
-        .badge-gray {
-            background: var(--tm-gray-200);
-            color: var(--tm-gray-700);
-        }
-
-        /* ========================================
-           PROMPT BOXES
-        ======================================== */
+        /* PROMPT BOXES */
         .prompt-box {
             background: var(--tm-gray-900);
             border-radius: 8px;
@@ -487,9 +444,7 @@
             white-space: pre-wrap;
         }
 
-        /* ========================================
-           FEATURE GRID
-        ======================================== */
+        /* FEATURE GRID */
         .feature-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -518,8 +473,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
             margin-bottom: var(--space-md);
+            color: var(--tm-white);
         }
 
         .feature-title {
@@ -537,9 +492,7 @@
             line-height: 1.6;
         }
 
-        /* ========================================
-           WORKFLOW STEPS
-        ======================================== */
+        /* WORKFLOW STEPS */
         .workflow-steps {
             margin: var(--space-xl) 0;
         }
@@ -551,9 +504,7 @@
             border-bottom: 1px solid var(--tm-gray-200);
         }
 
-        .workflow-step:last-child {
-            border-bottom: none;
-        }
+        .workflow-step:last-child { border-bottom: none; }
 
         .step-number {
             width: 40px;
@@ -569,9 +520,7 @@
             flex-shrink: 0;
         }
 
-        .step-content {
-            flex: 1;
-        }
+        .step-content { flex: 1; }
 
         .step-title {
             font-family: var(--font-heading);
@@ -587,9 +536,7 @@
             color: var(--tm-gray-500);
         }
 
-        /* ========================================
-           TABS
-        ======================================== */
+        /* TABS */
         .tabs {
             border-bottom: 2px solid var(--tm-gray-200);
             margin-bottom: var(--space-xl);
@@ -615,13 +562,8 @@
             transition: color var(--transition-fast);
         }
 
-        .tab-btn:hover {
-            color: var(--tm-gray-700);
-        }
-
-        .tab-btn.active {
-            color: var(--tm-black);
-        }
+        .tab-btn:hover { color: var(--tm-gray-700); }
+        .tab-btn.active { color: var(--tm-black); }
 
         .tab-btn.active::after {
             content: '';
@@ -633,18 +575,13 @@
             background: var(--tm-red);
         }
 
-        .tab-content {
-            display: none;
-        }
-
+        .tab-content { display: none; }
         .tab-content.active {
             display: block;
             animation: fadeIn 0.3s ease;
         }
 
-        /* ========================================
-           ACCORDION
-        ======================================== */
+        /* ACCORDION */
         .accordion {
             margin: var(--space-lg) 0;
         }
@@ -668,9 +605,7 @@
             transition: background var(--transition-fast);
         }
 
-        .accordion-header:hover {
-            background: var(--tm-gray-100);
-        }
+        .accordion-header:hover { background: var(--tm-gray-100); }
 
         .accordion-title {
             font-family: var(--font-heading);
@@ -687,9 +622,7 @@
             transition: transform var(--transition-fast);
         }
 
-        .accordion-item.open .accordion-icon {
-            transform: rotate(45deg);
-        }
+        .accordion-item.open .accordion-icon { transform: rotate(45deg); }
 
         .accordion-content {
             display: none;
@@ -697,13 +630,9 @@
             background: var(--tm-white);
         }
 
-        .accordion-item.open .accordion-content {
-            display: block;
-        }
+        .accordion-item.open .accordion-content { display: block; }
 
-        /* ========================================
-           LISTS
-        ======================================== */
+        /* LISTS */
         .check-list {
             list-style: none;
             margin: var(--space-md) 0;
@@ -725,9 +654,7 @@
             flex-shrink: 0;
         }
 
-        /* ========================================
-           ALERTS
-        ======================================== */
+        /* ALERTS */
         .alert {
             padding: var(--space-md) var(--space-lg);
             border-radius: 8px;
@@ -738,8 +665,9 @@
         }
 
         .alert-icon {
-            font-size: 20px;
             flex-shrink: 0;
+            width: 20px;
+            height: 20px;
         }
 
         .alert-info {
@@ -757,9 +685,7 @@
             border: 1px solid #10B981;
         }
 
-        .alert-content {
-            flex: 1;
-        }
+        .alert-content { flex: 1; }
 
         .alert-title {
             font-family: var(--font-heading);
@@ -776,49 +702,7 @@
             margin: 0;
         }
 
-        /* ========================================
-           RESPONSIVE
-        ======================================== */
-        @media (max-width: 1024px) {
-            .sidebar {
-                transform: translateX(-100%);
-                transition: transform var(--transition-base);
-            }
-
-            .sidebar.open {
-                transform: translateX(0);
-            }
-
-            .main-content {
-                margin-left: 0;
-                padding: var(--space-xl) var(--space-lg);
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .section-title {
-                font-size: 28px;
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .feature-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .tab-list {
-                flex-wrap: wrap;
-                gap: var(--space-sm);
-            }
-        }
-
-        /* Menu toggle button */
+        /* MENU TOGGLE */
         .menu-toggle {
             display: flex;
             align-items: center;
@@ -826,7 +710,6 @@
             background: none;
             border: none;
             color: var(--tm-white);
-            font-size: 24px;
             cursor: pointer;
             padding: var(--space-sm);
             width: 40px;
@@ -838,32 +721,29 @@
             border-radius: 4px;
         }
 
-        /* Sidebar collapsed state */
-        .sidebar.collapsed {
-            transform: translateX(-100%);
-        }
+        /* RESPONSIVE */
+        .sidebar.collapsed { transform: translateX(-100%); }
+        .main-content.expanded { margin-left: 0; }
 
-        .main-content.expanded {
-            margin-left: 0;
-        }
-
-        /* Mobile styles */
         @media (max-width: 1024px) {
             .sidebar {
                 transform: translateX(-100%);
                 z-index: 999;
             }
-
-            .sidebar.open {
-                transform: translateX(0);
-            }
-
+            .sidebar.open { transform: translateX(0); }
             .main-content {
                 margin-left: 0;
+                padding: var(--space-xl) var(--space-lg);
             }
         }
 
-        /* Sidebar overlay for mobile */
+        @media (max-width: 640px) {
+            .section-title { font-size: 28px; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .feature-grid { grid-template-columns: 1fr; }
+            .tab-list { flex-wrap: wrap; gap: var(--space-sm); }
+        }
+
         .sidebar-overlay {
             display: none;
             position: fixed;
@@ -875,27 +755,24 @@
             z-index: 998;
         }
 
-        .sidebar-overlay.active {
-            display: block;
-        }
+        .sidebar-overlay.active { display: block; }
 
         @media (min-width: 1025px) {
-            .sidebar-overlay {
-                display: none !important;
-            }
+            .sidebar-overlay { display: none !important; }
         }
     </style>
 </head>
 <body>
-    <!-- Sidebar overlay for mobile -->
     <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
     
     <!-- HEADER -->
     <header class="site-header">
         <div class="header-content">
             <div class="logo-area">
-                <button class="menu-toggle" onclick="toggleSidebar()" title="Toggle Menu">☰</button>
-                <img src="taylor-made-golf-vector-logo.png" alt="TaylorMade" class="logo-img" style="height: 40px; width: auto; filter: brightness(0) invert(1);">
+                <button class="menu-toggle" onclick="toggleSidebar()" title="Toggle Menu">
+                    <i data-lucide="menu" style="width:24px;height:24px;"></i>
+                </button>
+                <img src="taylor-made-golf-vector-logo.png" alt="TaylorMade" style="height: 40px; width: auto; filter: brightness(0) invert(1);">
                 <div class="logo-divider"></div>
                 <div class="header-title">Claude AI Marketing Guide</div>
             </div>
@@ -910,36 +787,36 @@
                 <div class="sidebar-section">
                     <div class="sidebar-title">Getting Started</div>
                     <ul class="nav-list">
-                        <li><a href="#overview" class="nav-link active" onclick="showSection('overview', event)"><span class="nav-icon">📋</span>Overview</a></li>
-                        <li><a href="#platform" class="nav-link" onclick="showSection('platform', event)"><span class="nav-icon">🤖</span>Claude Platform<span class="nav-badge">4.5</span></a></li>
-                        <li><a href="#capabilities" class="nav-link" onclick="showSection('capabilities', event)"><span class="nav-icon">⚡</span>Capabilities</a></li>
+                        <li><a href="#overview" class="nav-link active" onclick="showSection('overview', event)"><i data-lucide="layout-dashboard" class="nav-icon"></i>Overview</a></li>
+                        <li><a href="#platform" class="nav-link" onclick="showSection('platform', event)"><img src="Claude.png" class="nav-icon-img" alt="">Claude Platform</a></li>
+                        <li><a href="#capabilities" class="nav-link" onclick="showSection('capabilities', event)"><i data-lucide="zap" class="nav-icon"></i>Capabilities</a></li>
                     </ul>
                 </div>
                 <div class="sidebar-section">
                     <div class="sidebar-title">Core Features</div>
                     <ul class="nav-list">
-                        <li><a href="#projects" class="nav-link" onclick="showSection('projects', event)"><span class="nav-icon">📁</span>Projects</a></li>
-                        <li><a href="#files" class="nav-link" onclick="showSection('files', event)"><span class="nav-icon">📄</span>File Creation</a></li>
-                        <li><a href="#research" class="nav-link" onclick="showSection('research', event)"><span class="nav-icon">🔍</span>Web Search</a></li>
-                        <li><a href="#connectors" class="nav-link" onclick="showSection('connectors', event)"><span class="nav-icon">🔗</span>Connectors<span class="nav-badge">New</span></a></li>
-                        <li><a href="#styles" class="nav-link" onclick="showSection('styles', event)"><span class="nav-icon">✨</span>Custom Styles</a></li>
+                        <li><a href="#projects" class="nav-link" onclick="showSection('projects', event)"><i data-lucide="folder" class="nav-icon"></i>Projects</a></li>
+                        <li><a href="#files" class="nav-link" onclick="showSection('files', event)"><i data-lucide="file-text" class="nav-icon"></i>File Creation</a></li>
+                        <li><a href="#research" class="nav-link" onclick="showSection('research', event)"><i data-lucide="search" class="nav-icon"></i>Web Search</a></li>
+                        <li><a href="#connectors" class="nav-link" onclick="showSection('connectors', event)"><i data-lucide="plug" class="nav-icon"></i>Connectors<span class="nav-badge">New</span></a></li>
+                        <li><a href="#styles" class="nav-link" onclick="showSection('styles', event)"><i data-lucide="wand-2" class="nav-icon"></i>Custom Styles</a></li>
                     </ul>
                 </div>
                 <div class="sidebar-section">
                     <div class="sidebar-title">Marketing</div>
                     <ul class="nav-list">
-                        <li><a href="#usecases" class="nav-link" onclick="showSection('usecases', event)"><span class="nav-icon">🎯</span>Use Cases</a></li>
-                        <li><a href="#prompts" class="nav-link" onclick="showSection('prompts', event)"><span class="nav-icon">💬</span>Prompting Guide</a></li>
-                        <li><a href="#workflows" class="nav-link" onclick="showSection('workflows', event)"><span class="nav-icon">🔄</span>Workflows</a></li>
-                        <li><a href="#brand" class="nav-link" onclick="showSection('brand', event)"><span class="nav-icon">🎨</span>Brand Voice</a></li>
+                        <li><a href="#usecases" class="nav-link" onclick="showSection('usecases', event)"><i data-lucide="target" class="nav-icon"></i>Use Cases</a></li>
+                        <li><a href="#prompts" class="nav-link" onclick="showSection('prompts', event)"><i data-lucide="message-square" class="nav-icon"></i>Prompting Guide</a></li>
+                        <li><a href="#workflows" class="nav-link" onclick="showSection('workflows', event)"><i data-lucide="git-branch" class="nav-icon"></i>Workflows</a></li>
+                        <li><a href="#brand" class="nav-link" onclick="showSection('brand', event)"><img src="tbug.png" class="nav-icon-img" alt="">Brand Voice</a></li>
                     </ul>
                 </div>
                 <div class="sidebar-section">
                     <div class="sidebar-title">Enterprise</div>
                     <ul class="nav-list">
-                        <li><a href="#plans" class="nav-link" onclick="showSection('plans', event)"><span class="nav-icon">💼</span>Plans & Pricing</a></li>
-                        <li><a href="#security" class="nav-link" onclick="showSection('security', event)"><span class="nav-icon">🔒</span>Security</a></li>
-                        <li><a href="#implementation" class="nav-link" onclick="showSection('implementation', event)"><span class="nav-icon">🚀</span>Implementation</a></li>
+                        <li><a href="#plans" class="nav-link" onclick="showSection('plans', event)"><i data-lucide="credit-card" class="nav-icon"></i>Plans & Pricing</a></li>
+                        <li><a href="#security" class="nav-link" onclick="showSection('security', event)"><i data-lucide="shield" class="nav-icon"></i>Security</a></li>
+                        <li><a href="#implementation" class="nav-link" onclick="showSection('implementation', event)"><i data-lucide="rocket" class="nav-icon"></i>Implementation</a></li>
                     </ul>
                 </div>
             </nav>
@@ -948,9 +825,7 @@
         <!-- MAIN CONTENT -->
         <main class="main-content">
             <div class="content-wrapper">
-                <!-- ==========================================
-                     SECTION: OVERVIEW
-                ========================================== -->
+                <!-- SECTION: OVERVIEW -->
                 <section id="overview" class="section active">
                     <h1 class="section-title">Claude AI for Marketing</h1>
                     <p class="section-subtitle">Your comprehensive guide to leveraging AI for TaylorMade's marketing excellence</p>
@@ -983,22 +858,22 @@
                     <h2>Why Claude for Marketing?</h2>
                     <div class="feature-grid">
                         <div class="feature-card">
-                            <div class="feature-icon">📝</div>
+                            <div class="feature-icon"><i data-lucide="pencil" style="width:24px;height:24px;"></i></div>
                             <div class="feature-title">Content at Scale</div>
                             <div class="feature-desc">Generate product descriptions, social posts, email campaigns, and long-form content while maintaining consistent brand voice across all channels.</div>
                         </div>
                         <div class="feature-card">
-                            <div class="feature-icon">🎯</div>
+                            <div class="feature-icon"><i data-lucide="target" style="width:24px;height:24px;"></i></div>
                             <div class="feature-title">Strategic Analysis</div>
                             <div class="feature-desc">Analyze competitor positioning, market trends, and campaign performance with deep research capabilities that pull real-time data.</div>
                         </div>
                         <div class="feature-card">
-                            <div class="feature-icon">🌍</div>
+                            <div class="feature-icon"><i data-lucide="globe" style="width:24px;height:24px;"></i></div>
                             <div class="feature-title">Global Localization</div>
                             <div class="feature-desc">Adapt campaigns for international markets with culturally-aware translations that preserve brand intent and messaging nuance.</div>
                         </div>
                         <div class="feature-card">
-                            <div class="feature-icon">📊</div>
+                            <div class="feature-icon"><i data-lucide="file-spreadsheet" style="width:24px;height:24px;"></i></div>
                             <div class="feature-title">File Creation</div>
                             <div class="feature-desc">Create actual PowerPoint presentations, Excel spreadsheets, Word documents, and PDFs directly—no copy-paste required.</div>
                         </div>
@@ -1015,15 +890,13 @@
                     </ul>
                 </section>
 
-                <!-- ==========================================
-                     SECTION: PLATFORM
-                ========================================== -->
+                <!-- SECTION: PLATFORM -->
                 <section id="platform" class="section">
                     <h1 class="section-title">Claude Platform</h1>
                     <p class="section-subtitle">Understanding the Claude 4.5 model family and December 2025 capabilities</p>
 
                     <h2>Current Model Lineup</h2>
-                    <p>Anthropic's Claude 4.5 family represents the latest generation of AI models, each optimized for different use cases and budgets.</p>
+                    <p>Anthropic's Claude 4.5 family represents the latest generation of AI models, each optimized for different use cases.</p>
 
                     <div class="table-wrapper">
                         <table>
@@ -1031,8 +904,6 @@
                                 <tr>
                                     <th>Model</th>
                                     <th>Best For</th>
-                                    <th>Context</th>
-                                    <th>Max Output</th>
                                     <th>Speed</th>
                                 </tr>
                             </thead>
@@ -1040,22 +911,16 @@
                                 <tr>
                                     <td><strong>Claude Opus 4.5</strong> <span class="badge badge-red">Flagship</span></td>
                                     <td>Complex analysis, nuanced writing, strategic work</td>
-                                    <td>200K tokens</td>
-                                    <td>64K tokens</td>
                                     <td>Moderate</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Claude Sonnet 4.5</strong> <span class="badge badge-black">Recommended</span></td>
                                     <td>Best balance of intelligence and speed; coding</td>
-                                    <td>200K (1M beta)</td>
-                                    <td>64K tokens</td>
                                     <td>Fast</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Claude Haiku 4.5</strong></td>
                                     <td>Quick tasks, high-volume work, simple queries</td>
-                                    <td>200K tokens</td>
-                                    <td>64K tokens</td>
                                     <td>Fastest</td>
                                 </tr>
                             </tbody>
@@ -1063,91 +928,49 @@
                     </div>
 
                     <div class="alert alert-info">
-                        <span class="alert-icon">💡</span>
+                        <i data-lucide="lightbulb" class="alert-icon"></i>
                         <div class="alert-content">
                             <div class="alert-title">Which Model to Use?</div>
                             <p class="alert-text">For most marketing tasks, <strong>Sonnet 4.5</strong> provides the best balance. Use <strong>Opus 4.5</strong> for strategic documents, complex analysis, or when nuance is critical. Use <strong>Haiku 4.5</strong> for quick iterations and high-volume tasks.</p>
                         </div>
                     </div>
 
-                    <h2>What's New in Claude 4.5</h2>
+                    <h2>Key Platform Features</h2>
                     <div class="feature-grid">
                         <div class="feature-card">
-                            <div class="feature-icon">🧠</div>
+                            <div class="feature-icon"><i data-lucide="brain" style="width:24px;height:24px;"></i></div>
                             <div class="feature-title">Extended Thinking</div>
-                            <div class="feature-desc">Claude can now engage in deeper reasoning with an "effort" parameter. Set it to high for complex strategic work that benefits from more thorough analysis.</div>
+                            <div class="feature-desc">Claude can engage in deeper reasoning for complex strategic work that benefits from more thorough analysis.</div>
                         </div>
                         <div class="feature-card">
-                            <div class="feature-icon">📚</div>
-                            <div class="feature-title">1M Token Context</div>
-                            <div class="feature-desc">Sonnet 4.5 offers up to 1 million tokens in beta—enough to process entire brand playbooks, competitor analyses, and campaign histories in a single conversation.</div>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">💾</div>
+                            <div class="feature-icon"><i data-lucide="database" style="width:24px;height:24px;"></i></div>
                             <div class="feature-title">Memory</div>
-                            <div class="feature-desc">Claude now remembers key information across conversations—your preferences, ongoing projects, and team context carry forward automatically.</div>
+                            <div class="feature-desc">Claude remembers key information across conversations—your preferences, ongoing projects, and team context carry forward.</div>
                         </div>
                         <div class="feature-card">
-                            <div class="feature-icon">📁</div>
+                            <div class="feature-icon"><i data-lucide="folder-open" style="width:24px;height:24px;"></i></div>
+                            <div class="feature-title">Projects</div>
+                            <div class="feature-desc">Persistent workspaces where you upload files and set custom instructions. Team members can share Projects.</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon"><i data-lucide="download" style="width:24px;height:24px;"></i></div>
                             <div class="feature-title">File Creation</div>
-                            <div class="feature-desc">Generate actual downloadable files: PowerPoint decks, Excel spreadsheets, Word documents, and PDFs directly from your prompts.</div>
-                        </div>
-                    </div>
-
-                    <h2>Key Platform Features</h2>
-                    <div class="accordion">
-                        <div class="accordion-item">
-                            <button class="accordion-header" onclick="toggleAccordion(this)">
-                                <span class="accordion-title">Projects</span>
-                                <span class="accordion-icon">+</span>
-                            </button>
-                            <div class="accordion-content">
-                                <p>Projects are persistent workspaces where you can upload files, set custom instructions, and maintain ongoing context. Create Projects for each brand vertical, campaign, or team initiative. Team members can share Projects to ensure consistent context.</p>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <button class="accordion-header" onclick="toggleAccordion(this)">
-                                <span class="accordion-title">Custom Styles</span>
-                                <span class="accordion-icon">+</span>
-                            </button>
-                            <div class="accordion-content">
-                                <p>Upload examples of your best content to create a Custom Style that Claude will match. Perfect for maintaining TaylorMade's voice across all AI-generated content. Styles can be applied globally or per-conversation.</p>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <button class="accordion-header" onclick="toggleAccordion(this)">
-                                <span class="accordion-title">Web Search</span>
-                                <span class="accordion-icon">+</span>
-                            </button>
-                            <div class="accordion-content">
-                                <p>Claude can search the web in real-time to find current information, competitor data, industry trends, and news. Results are cited with sources. Available on all paid plans.</p>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <button class="accordion-header" onclick="toggleAccordion(this)">
-                                <span class="accordion-title">Artifacts</span>
-                                <span class="accordion-icon">+</span>
-                            </button>
-                            <div class="accordion-content">
-                                <p>Artifacts are standalone pieces of content (code, documents, charts) that appear in a separate panel and can be iterated independently. Great for developing content through multiple rounds of feedback.</p>
-                            </div>
+                            <div class="feature-desc">Generate actual downloadable files: PowerPoint decks, Excel spreadsheets, Word documents, and PDFs.</div>
                         </div>
                     </div>
                 </section>
 
-                <!-- ==========================================
-                     SECTION: CAPABILITIES
-                ========================================== -->
+                <!-- SECTION: CAPABILITIES -->
                 <section id="capabilities" class="section">
                     <h1 class="section-title">Capabilities</h1>
                     <p class="section-subtitle">What Claude can do for marketing teams</p>
 
                     <h2>Content Creation</h2>
                     <div class="card">
-                        <p>Claude excels at generating marketing content across formats and channels. Unlike template-based tools, Claude understands context, audience, and brand voice to produce genuinely useful drafts.</p>
+                        <p>Claude excels at generating marketing content across formats and channels. Unlike template-based tools, Claude understands context, audience, and brand voice.</p>
                         <ul class="check-list">
                             <li>Product descriptions and specifications</li>
-                            <li>Social media posts across platforms (Instagram, Twitter/X, LinkedIn, Facebook)</li>
+                            <li>Social media posts across platforms</li>
                             <li>Email campaigns including subject lines and body copy</li>
                             <li>Blog posts and long-form articles</li>
                             <li>Press releases and media materials</li>
@@ -1171,55 +994,32 @@
                         </ul>
                     </div>
 
-                    <h2>Document Processing</h2>
-                    <div class="card">
-                        <p>Claude can read, analyze, and transform documents—processing PDFs, spreadsheets, presentations, and more.</p>
-                        <ul class="check-list">
-                            <li>Summarize lengthy reports and research documents</li>
-                            <li>Extract key insights from competitive materials</li>
-                            <li>Convert documents between formats</li>
-                            <li>Create executive summaries from detailed reports</li>
-                            <li>Analyze data from uploaded spreadsheets</li>
-                            <li>Review and provide feedback on draft content</li>
-                        </ul>
-                    </div>
-
                     <h2>File Creation</h2>
                     <div class="card card-dark">
                         <h3>Create Real, Downloadable Files</h3>
                         <p>One of Claude's most powerful features for marketing teams is the ability to create actual files you can download and use immediately.</p>
                         <div class="feature-grid" style="margin-top: var(--space-lg);">
                             <div class="feature-card" style="background: var(--tm-gray-800); border: none;">
-                                <div class="feature-title" style="color: var(--tm-white);">📊 Excel (.xlsx)</div>
-                                <div class="feature-desc" style="color: var(--tm-gray-400);">Spreadsheets with formulas, charts, pivot tables, and formatting. Perfect for campaign trackers, budget analyses, and data reports.</div>
+                                <div class="feature-title" style="color: var(--tm-white);">Excel (.xlsx)</div>
+                                <div class="feature-desc" style="color: var(--tm-gray-400);">Spreadsheets with formulas, charts, and formatting. Perfect for campaign trackers and data reports.</div>
                             </div>
                             <div class="feature-card" style="background: var(--tm-gray-800); border: none;">
-                                <div class="feature-title" style="color: var(--tm-white);">📑 PowerPoint (.pptx)</div>
-                                <div class="feature-desc" style="color: var(--tm-gray-400);">Presentation decks with layouts, text, and structure. Great for campaign proposals, quarterly reviews, and stakeholder presentations.</div>
+                                <div class="feature-title" style="color: var(--tm-white);">PowerPoint (.pptx)</div>
+                                <div class="feature-desc" style="color: var(--tm-gray-400);">Presentation decks with layouts and structure. Great for campaign proposals and reviews.</div>
                             </div>
                             <div class="feature-card" style="background: var(--tm-gray-800); border: none;">
-                                <div class="feature-title" style="color: var(--tm-white);">📝 Word (.docx)</div>
-                                <div class="feature-desc" style="color: var(--tm-gray-400);">Documents with formatting, styles, and structure. Ideal for briefs, strategy documents, and formal reports.</div>
+                                <div class="feature-title" style="color: var(--tm-white);">Word (.docx)</div>
+                                <div class="feature-desc" style="color: var(--tm-gray-400);">Documents with formatting and styles. Ideal for briefs and formal reports.</div>
                             </div>
                             <div class="feature-card" style="background: var(--tm-gray-800); border: none;">
-                                <div class="feature-title" style="color: var(--tm-white);">📄 PDF</div>
-                                <div class="feature-desc" style="color: var(--tm-gray-400);">Professional PDFs for final deliverables, one-pagers, and distribution-ready materials.</div>
+                                <div class="feature-title" style="color: var(--tm-white);">PDF</div>
+                                <div class="feature-desc" style="color: var(--tm-gray-400);">Professional PDFs for final deliverables and distribution-ready materials.</div>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="alert alert-success">
-                        <span class="alert-icon">✅</span>
-                        <div class="alert-content">
-                            <div class="alert-title">File Creation Best Practice</div>
-                            <p class="alert-text">Be specific about structure and content. Instead of "create a presentation," try "create a 10-slide PowerPoint with sections for: executive summary, market opportunity, campaign strategy, timeline, budget, and success metrics."</p>
                         </div>
                     </div>
                 </section>
 
-                <!-- ==========================================
-                     SECTION: PROJECTS
-                ========================================== -->
+                <!-- SECTION: PROJECTS -->
                 <section id="projects" class="section">
                     <h1 class="section-title">Projects</h1>
                     <p class="section-subtitle">Persistent workspaces for team collaboration and context management</p>
@@ -1229,9 +1029,7 @@
                         <p>Projects are persistent workspaces in Claude where you can upload files, set custom instructions, and maintain ongoing context across conversations. Think of them as dedicated folders that Claude remembers and references whenever you work within them.</p>
                     </div>
 
-                    <h2>Recommended Project Structure for Marketing</h2>
-                    <p>Create Projects organized by function, brand vertical, or campaign to keep context focused and relevant.</p>
-
+                    <h2>Recommended Project Structure</h2>
                     <div class="table-wrapper">
                         <table>
                             <thead>
@@ -1258,19 +1056,9 @@
                                     <td>Product specs, performance data, target segments</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Apparel & Gear</strong></td>
-                                    <td>Soft goods and accessories</td>
-                                    <td>Season briefs, style guides, lifestyle positioning</td>
-                                </tr>
-                                <tr>
                                     <td><strong>Social Content</strong></td>
                                     <td>Social media content creation</td>
                                     <td>Platform guidelines, content calendar, top-performing posts</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Campaign: [Name]</strong></td>
-                                    <td>Specific campaign workspace</td>
-                                    <td>Creative brief, assets, timeline, stakeholder feedback</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1289,94 +1077,38 @@
                             <div class="step-number">2</div>
                             <div class="step-content">
                                 <div class="step-title">Upload Reference Files</div>
-                                <div class="step-desc">Add PDFs, documents, spreadsheets, and images that Claude should reference. Maximum 200K tokens total across all files.</div>
+                                <div class="step-desc">Add PDFs, documents, spreadsheets, and images that Claude should reference.</div>
                             </div>
                         </div>
                         <div class="workflow-step">
                             <div class="step-number">3</div>
                             <div class="step-content">
                                 <div class="step-title">Write Custom Instructions</div>
-                                <div class="step-desc">Add project-specific instructions that apply to every conversation. Include brand voice guidance, preferred formats, and key requirements.</div>
+                                <div class="step-desc">Add project-specific instructions that apply to every conversation.</div>
                             </div>
                         </div>
                         <div class="workflow-step">
                             <div class="step-number">4</div>
                             <div class="step-content">
                                 <div class="step-title">Share with Team</div>
-                                <div class="step-desc">Team and Enterprise plans allow sharing Projects with colleagues so everyone works from the same context.</div>
+                                <div class="step-desc">Team and Enterprise plans allow sharing Projects with colleagues.</div>
                             </div>
                         </div>
                     </div>
-
-                    <h3>Sample Project Instructions</h3>
-                    <div class="prompt-box">
-                        <div class="prompt-header">
-                            <span class="prompt-label">Project Instructions</span>
-                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
-                        </div>
-                        <div class="prompt-content">You are assisting TaylorMade Golf's marketing team with content creation and analysis.
-
-Brand Voice:
-- Confident, authoritative, performance-focused
-- Speak to serious golfers who care about equipment technology
-- Balance technical credibility with accessible explanations
-- Competitive but not disparaging of competitors
-- Premium positioning without being elitist
-
-Key Messaging Themes:
-- Innovation and technology leadership
-- Tour validation and professional endorsements
-- Performance data and measurable improvements
-- Heritage balanced with forward-thinking innovation
-
-When creating content:
-- Always match platform requirements (character limits, hashtag usage, etc.)
-- Include calls-to-action where appropriate
-- Reference specific product technologies when discussing equipment
-- Maintain consistency with uploaded brand guidelines
-
-Default format: Ready-to-use copy unless otherwise specified</div>
-                    </div>
                 </section>
 
-                <!-- ==========================================
-                     SECTION: FILE CREATION
-                ========================================== -->
+                <!-- SECTION: FILE CREATION -->
                 <section id="files" class="section">
                     <h1 class="section-title">File Creation</h1>
                     <p class="section-subtitle">Generate real, downloadable documents directly from Claude</p>
 
                     <div class="card card-dark">
                         <h3>How It Works</h3>
-                        <p>Claude can create actual files—not just text you copy and paste. When you request a document, spreadsheet, or presentation, Claude generates the file using a secure computer environment and provides a download link.</p>
+                        <p>Claude can create actual files—not just text you copy and paste. When you request a document, spreadsheet, or presentation, Claude generates the file and provides a download link.</p>
                         <p><strong>Available on:</strong> Max, Team, and Enterprise plans</p>
                     </div>
 
-                    <h2>Supported File Types</h2>
-                    <div class="feature-grid">
-                        <div class="feature-card">
-                            <div class="feature-icon">📊</div>
-                            <div class="feature-title">Excel Spreadsheets</div>
-                            <div class="feature-desc">Full .xlsx files with multiple sheets, formulas, conditional formatting, charts, and data validation. Perfect for campaign trackers, budget analyses, and data reports.</div>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">📑</div>
-                            <div class="feature-title">PowerPoint Decks</div>
-                            <div class="feature-desc">Complete .pptx presentations with slide layouts, text formatting, and structure. Great for campaign proposals, quarterly reviews, and stakeholder decks.</div>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">📝</div>
-                            <div class="feature-title">Word Documents</div>
-                            <div class="feature-desc">Formatted .docx files with styles, headers, tables, and professional layouts. Ideal for briefs, reports, and formal documentation.</div>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">📄</div>
-                            <div class="feature-title">PDF Documents</div>
-                            <div class="feature-desc">Professional PDFs for final deliverables and distribution-ready materials. Can also fill existing PDF forms.</div>
-                        </div>
-                    </div>
-
-                    <h2>Best Practices for File Requests</h2>
+                    <h2>Best Practices</h2>
                     <div class="accordion">
                         <div class="accordion-item">
                             <button class="accordion-header" onclick="toggleAccordion(this)">
@@ -1390,7 +1122,7 @@ Default format: Ready-to-use copy unless otherwise specified</div>
                                         <span class="prompt-label">Good Request</span>
                                         <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
                                     </div>
-                                    <div class="prompt-content">Create a PowerPoint presentation for the Qi35 driver launch with these slides:
+                                    <div class="prompt-content">Create a PowerPoint for the Qi35 driver launch with these slides:
 1. Title slide with product name and tagline
 2. The Problem: What golfers struggle with
 3. The Solution: Qi35 technology overview
@@ -1398,7 +1130,7 @@ Default format: Ready-to-use copy unless otherwise specified</div>
 5. Performance Data: Distance and forgiveness stats
 6. Tour Validation: Pros using Qi35
 7. Availability and Pricing
-8. Call to Action: Where to buy/learn more</div>
+8. Call to Action</div>
                                 </div>
                             </div>
                         </div>
@@ -1408,148 +1140,60 @@ Default format: Ready-to-use copy unless otherwise specified</div>
                                 <span class="accordion-icon">+</span>
                             </button>
                             <div class="accordion-content">
-                                <p>For spreadsheets, give Claude example data or describe the data structure you need:</p>
+                                <p>For spreadsheets, describe the data structure you need:</p>
                                 <div class="prompt-box">
                                     <div class="prompt-header">
                                         <span class="prompt-label">Good Request</span>
                                         <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
                                     </div>
-                                    <div class="prompt-content">Create an Excel campaign tracker with these columns:
-- Campaign Name
-- Start Date / End Date
-- Channel (Social, Email, Paid, PR)
-- Budget Allocated
-- Spend to Date
-- Impressions
-- Clicks
-- Conversions
-- CPA
+                                    <div class="prompt-content">Create an Excel campaign tracker with columns for:
+- Campaign Name, Start/End Date, Channel
+- Budget Allocated, Spend to Date
+- Impressions, Clicks, Conversions, CPA
 - Status (Planning, Active, Complete)
 
-Include formulas to calculate spend remaining and conversion rate. Add conditional formatting to highlight campaigns over budget in red.</div>
+Include formulas to calculate spend remaining and conversion rate.</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="accordion-item">
-                            <button class="accordion-header" onclick="toggleAccordion(this)">
-                                <span class="accordion-title">Reference Uploaded Files</span>
-                                <span class="accordion-icon">+</span>
-                            </button>
-                            <div class="accordion-content">
-                                <p>You can upload files and ask Claude to transform or incorporate them:</p>
-                                <ul class="check-list">
-                                    <li>Upload a data export and ask for a formatted report</li>
-                                    <li>Upload a brief and ask for a presentation based on it</li>
-                                    <li>Upload raw notes and ask for a polished document</li>
-                                    <li>Upload a PDF form and ask Claude to fill it in</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <button class="accordion-header" onclick="toggleAccordion(this)">
-                                <span class="accordion-title">Iterate and Refine</span>
-                                <span class="accordion-icon">+</span>
-                            </button>
-                            <div class="accordion-content">
-                                <p>Files can be refined through conversation:</p>
-                                <ul class="check-list">
-                                    <li>"Add a chart showing monthly trends to slide 4"</li>
-                                    <li>"Change the color scheme to use TaylorMade red accents"</li>
-                                    <li>"Add a summary row with totals to the spreadsheet"</li>
-                                    <li>"Make the executive summary more concise"</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h2>Example Prompts for File Creation</h2>
-                    
-                    <h3>Campaign Tracker Spreadsheet</h3>
-                    <div class="prompt-box">
-                        <div class="prompt-header">
-                            <span class="prompt-label">Excel Request</span>
-                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
-                        </div>
-                        <div class="prompt-content">Create an Excel spreadsheet for tracking our Q1 marketing campaigns. Include:
-
-Sheet 1 - Campaign Overview:
-- Campaign name, channel, dates, budget, spend, results columns
-- Formulas for ROI and budget variance
-- Conditional formatting for status indicators
-
-Sheet 2 - Social Performance:
-- Platform breakdown (Instagram, Twitter, Facebook, TikTok)
-- Engagement metrics, follower growth, top posts
-
-Sheet 3 - Email Metrics:
-- Campaign name, send date, list size, open rate, CTR, conversions
-
-Include sample data for 5 campaigns so I can see the structure.</div>
-                    </div>
-
-                    <h3>Campaign Proposal Deck</h3>
-                    <div class="prompt-box">
-                        <div class="prompt-header">
-                            <span class="prompt-label">PowerPoint Request</span>
-                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
-                        </div>
-                        <div class="prompt-content">Create a PowerPoint proposal for a summer influencer campaign for TaylorMade golf balls.
-
-Include these slides:
-1. Title: "Summer Ball Campaign 2025"
-2. Objective: Increase TP5/TP5x awareness among 25-40 demographic
-3. Target Audience: Serious amateurs, 10-20 handicap
-4. Strategy Overview: Influencer partnerships + UGC
-5. Proposed Influencers: 3 tiers (pros, lifestyle, micro)
-6. Content Plan: Types of content and posting cadence
-7. Timeline: 12-week rollout
-8. Budget Breakdown: By category
-9. Success Metrics: KPIs we'll track
-10. Next Steps: Approval and kickoff
-
-Use clean, professional formatting appropriate for a golf brand.</div>
                     </div>
                 </section>
 
-                <!-- ==========================================
-                     SECTION: WEB SEARCH
-                ========================================== -->
+                <!-- SECTION: WEB SEARCH -->
                 <section id="research" class="section">
                     <h1 class="section-title">Web Search & Research</h1>
                     <p class="section-subtitle">Real-time information gathering and competitive intelligence</p>
 
                     <div class="card card-accent">
                         <h3>Real-Time Intelligence</h3>
-                        <p>Claude can search the web to find current information, competitor activities, industry trends, and breaking news. Unlike Claude's training data (which has a knowledge cutoff), web search provides up-to-the-minute information with source citations.</p>
+                        <p>Claude can search the web to find current information, competitor activities, industry trends, and breaking news with source citations.</p>
                     </div>
 
                     <h2>What Web Search Enables</h2>
                     <div class="feature-grid">
                         <div class="feature-card">
-                            <div class="feature-icon">🔍</div>
+                            <div class="feature-icon"><i data-lucide="eye" style="width:24px;height:24px;"></i></div>
                             <div class="feature-title">Competitive Monitoring</div>
                             <div class="feature-desc">Track competitor product launches, pricing changes, marketing campaigns, and press coverage in real-time.</div>
                         </div>
                         <div class="feature-card">
-                            <div class="feature-icon">📈</div>
+                            <div class="feature-icon"><i data-lucide="trending-up" style="width:24px;height:24px;"></i></div>
                             <div class="feature-title">Trend Analysis</div>
                             <div class="feature-desc">Identify emerging trends in golf equipment, consumer preferences, and market dynamics.</div>
                         </div>
                         <div class="feature-card">
-                            <div class="feature-icon">📰</div>
+                            <div class="feature-icon"><i data-lucide="newspaper" style="width:24px;height:24px;"></i></div>
                             <div class="feature-title">News Monitoring</div>
                             <div class="feature-desc">Stay current on industry news, tour results, player signings, and relevant current events.</div>
                         </div>
                         <div class="feature-card">
-                            <div class="feature-icon">👥</div>
+                            <div class="feature-icon"><i data-lucide="users" style="width:24px;height:24px;"></i></div>
                             <div class="feature-title">Influencer Research</div>
                             <div class="feature-desc">Research potential partners, their audience demographics, engagement rates, and brand alignments.</div>
                         </div>
                     </div>
 
-                    <h2>Research Prompts</h2>
-
-                    <h3>Competitive Analysis</h3>
+                    <h2>Example Prompts</h2>
                     <div class="prompt-box">
                         <div class="prompt-header">
                             <span class="prompt-label">Competitor Research</span>
@@ -1560,56 +1204,13 @@ Use clean, professional formatting appropriate for a golf brand.</div>
 1. Key messaging and positioning
 2. Recent advertising campaigns
 3. Influencer and tour player partnerships
-4. Pricing strategy
-5. Customer reception and reviews
+4. Customer reception and reviews
 
 Provide specific examples and sources for each point.</div>
                     </div>
-
-                    <h3>Trend Identification</h3>
-                    <div class="prompt-box">
-                        <div class="prompt-header">
-                            <span class="prompt-label">Market Trends</span>
-                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
-                        </div>
-                        <div class="prompt-content">Research current trends in golf equipment marketing. Focus on:
-
-1. What messaging themes are resonating with consumers?
-2. Which marketing channels are brands investing in most?
-3. How are brands using AI and personalization?
-4. What's working on social media for golf brands?
-5. Any emerging platforms or approaches gaining traction?
-
-Cite specific examples from TaylorMade's competitors.</div>
-                    </div>
-
-                    <h3>Influencer Research</h3>
-                    <div class="prompt-box">
-                        <div class="prompt-header">
-                            <span class="prompt-label">Influencer Analysis</span>
-                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
-                        </div>
-                        <div class="prompt-content">Research golf influencers who would be good partners for a TaylorMade equipment campaign targeting serious amateur golfers. Look for:
-
-1. YouTube creators with 50K-500K subscribers focused on equipment reviews
-2. Instagram accounts with high engagement in the golf space
-3. TikTok creators reaching younger demographics
-
-For each recommendation, provide follower count, engagement rate if available, content style, and why they'd be a good fit for TaylorMade.</div>
-                    </div>
-
-                    <div class="alert alert-warning">
-                        <span class="alert-icon">⚠️</span>
-                        <div class="alert-content">
-                            <div class="alert-title">Web Search Limitations</div>
-                            <p class="alert-text">Web search works best for public information. It cannot access paywalled content, private social media accounts, or internal competitor data. Always verify critical information from search results.</p>
-                        </div>
-                    </div>
                 </section>
 
-                <!-- ==========================================
-                     SECTION: CONNECTORS
-                ========================================== -->
+                <!-- SECTION: CONNECTORS -->
                 <section id="connectors" class="section">
                     <h1 class="section-title">Microsoft 365 Connector</h1>
                     <p class="section-subtitle">Access SharePoint, OneDrive, Outlook, and Teams directly in Claude</p>
@@ -1623,52 +1224,28 @@ For each recommendation, provide follower count, engagement rate if available, c
                     <h2>What You Can Do</h2>
                     <div class="feature-grid">
                         <div class="feature-card">
-                            <div class="feature-icon">📁</div>
+                            <div class="feature-icon"><i data-lucide="folder-search" style="width:24px;height:24px;"></i></div>
                             <div class="feature-title">SharePoint & OneDrive</div>
-                            <div class="feature-desc">Search and analyze documents across sites and libraries. Find project specs, strategic plans, brand guidelines, and campaign materials without manual uploads.</div>
+                            <div class="feature-desc">Search and analyze documents across sites and libraries without manual uploads.</div>
                         </div>
                         <div class="feature-card">
-                            <div class="feature-icon">📧</div>
+                            <div class="feature-icon"><i data-lucide="mail" style="width:24px;height:24px;"></i></div>
                             <div class="feature-title">Outlook</div>
-                            <div class="feature-desc">Access email threads, analyze communication patterns, and extract insights from correspondence to understand project status, client feedback, or team alignment.</div>
+                            <div class="feature-desc">Access email threads and extract insights from correspondence.</div>
                         </div>
                         <div class="feature-card">
-                            <div class="feature-icon">💬</div>
+                            <div class="feature-icon"><i data-lucide="messages-square" style="width:24px;height:24px;"></i></div>
                             <div class="feature-title">Microsoft Teams</div>
-                            <div class="feature-desc">Search through chat threads, meeting notes, and channel conversations to find decisions, track discussions, and surface important information.</div>
+                            <div class="feature-desc">Search through chat threads, meeting notes, and channel conversations.</div>
                         </div>
                         <div class="feature-card">
-                            <div class="feature-icon">📅</div>
+                            <div class="feature-icon"><i data-lucide="calendar" style="width:24px;height:24px;"></i></div>
                             <div class="feature-title">Calendar</div>
-                            <div class="feature-desc">Get insights from your calendar, understand meeting context, and help prepare for upcoming discussions.</div>
+                            <div class="feature-desc">Get insights from your calendar and help prepare for upcoming discussions.</div>
                         </div>
                     </div>
 
                     <h2>Example Prompts</h2>
-                    <div class="prompt-box">
-                        <div class="prompt-header">
-                            <span class="prompt-label">SharePoint Search</span>
-                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
-                        </div>
-                        <div class="prompt-content">Find all project proposals in our SharePoint site from the last quarter and summarize the key themes.</div>
-                    </div>
-
-                    <div class="prompt-box">
-                        <div class="prompt-header">
-                            <span class="prompt-label">Email Analysis</span>
-                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
-                        </div>
-                        <div class="prompt-content">Review the email thread about the product launch and summarize outstanding action items.</div>
-                    </div>
-
-                    <div class="prompt-box">
-                        <div class="prompt-header">
-                            <span class="prompt-label">Teams Summary</span>
-                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
-                        </div>
-                        <div class="prompt-content">Summarize the key decisions from yesterday's Teams chat in the marketing campaign channel.</div>
-                    </div>
-
                     <div class="prompt-box">
                         <div class="prompt-header">
                             <span class="prompt-label">Cross-Platform Search</span>
@@ -1677,43 +1254,16 @@ For each recommendation, provide follower count, engagement rate if available, c
                         <div class="prompt-content">What's the current status of the Q1 driver launch? Check SharePoint for planning documents, Outlook for recent updates, and Teams for any discussions.</div>
                     </div>
 
-                    <h2>Getting Started</h2>
-                    <div class="workflow-steps">
-                        <div class="workflow-step">
-                            <div class="step-number">1</div>
-                            <div class="step-content">
-                                <div class="step-title">Check Your Access</div>
-                                <div class="step-desc">The Microsoft 365 connector is available on Team and Enterprise plans. Verify your plan includes connector access.</div>
-                            </div>
-                        </div>
-                        <div class="workflow-step">
-                            <div class="step-number">2</div>
-                            <div class="step-content">
-                                <div class="step-title">Authenticate</div>
-                                <div class="step-desc">Go to Settings → Connectors in Claude and connect your Microsoft 365 account. You'll sign in with your TaylorMade Microsoft credentials.</div>
-                            </div>
-                        </div>
-                        <div class="workflow-step">
-                            <div class="step-number">3</div>
-                            <div class="step-content">
-                                <div class="step-title">Start Asking Questions</div>
-                                <div class="step-desc">Claude will automatically detect when it needs to access your Microsoft 365 data. Just ask questions that reference your documents, emails, or conversations.</div>
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="alert alert-info">
-                        <span class="alert-icon">🔒</span>
+                        <i data-lucide="lock" class="alert-icon"></i>
                         <div class="alert-content">
                             <div class="alert-title">Security Note</div>
-                            <p class="alert-text">Claude can only access Microsoft 365 data you already have permission to view. The connector respects all existing SharePoint permissions and security controls. It provides read-only access—Claude cannot modify, send, or delete anything.</p>
+                            <p class="alert-text">Claude can only access Microsoft 365 data you already have permission to view. The connector provides read-only access—Claude cannot modify, send, or delete anything.</p>
                         </div>
                     </div>
                 </section>
 
-                <!-- ==========================================
-                     SECTION: CUSTOM STYLES
-                ========================================== -->
+                <!-- SECTION: CUSTOM STYLES -->
                 <section id="styles" class="section">
                     <h1 class="section-title">Custom Styles</h1>
                     <p class="section-subtitle">Train Claude to match TaylorMade's brand voice automatically</p>
@@ -1729,7 +1279,7 @@ For each recommendation, provide follower count, engagement rate if available, c
                             <div class="step-number">1</div>
                             <div class="step-content">
                                 <div class="step-title">Gather Best Examples</div>
-                                <div class="step-desc">Collect 3-5 pieces of content that exemplify TaylorMade's voice. Choose your best-performing product descriptions, social posts, or marketing copy.</div>
+                                <div class="step-desc">Collect 3-5 pieces of content that exemplify TaylorMade's voice.</div>
                             </div>
                         </div>
                         <div class="workflow-step">
@@ -1743,83 +1293,20 @@ For each recommendation, provide follower count, engagement rate if available, c
                             <div class="step-number">3</div>
                             <div class="step-content">
                                 <div class="step-title">Upload Examples</div>
-                                <div class="step-desc">Paste or upload your example content. Claude will analyze the voice, tone, vocabulary, and structure.</div>
+                                <div class="step-desc">Paste or upload your example content. Claude will analyze the voice and tone.</div>
                             </div>
                         </div>
                         <div class="workflow-step">
                             <div class="step-number">4</div>
                             <div class="step-content">
                                 <div class="step-title">Name and Activate</div>
-                                <div class="step-desc">Give your Style a clear name like "TaylorMade Product Voice" and set it as default or apply per-conversation.</div>
+                                <div class="step-desc">Give your Style a clear name and set it as default or apply per-conversation.</div>
                             </div>
                         </div>
                     </div>
-
-                    <h2>Recommended Styles for Marketing</h2>
-                    <div class="table-wrapper">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Style Name</th>
-                                    <th>Use For</th>
-                                    <th>Example Content to Upload</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>TaylorMade Product</strong></td>
-                                    <td>Product descriptions, specs, feature copy</td>
-                                    <td>Best website product descriptions</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>TaylorMade Social</strong></td>
-                                    <td>Social media posts across platforms</td>
-                                    <td>Top-performing organic posts</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>TaylorMade Long-Form</strong></td>
-                                    <td>Blog posts, articles, press releases</td>
-                                    <td>Published blog content and PR materials</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>TaylorMade Email</strong></td>
-                                    <td>Email campaigns, newsletters</td>
-                                    <td>Best-performing email content</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <h2>TaylorMade Brand Voice Guidelines</h2>
-                    <div class="card">
-                        <p>When creating Styles or writing custom instructions, reference these core voice attributes:</p>
-                        <h3>Tone</h3>
-                        <ul class="check-list">
-                            <li><strong>Confident:</strong> Speak with authority about our technology and performance</li>
-                            <li><strong>Passionate:</strong> Genuine enthusiasm for the game and innovation</li>
-                            <li><strong>Innovative:</strong> Forward-thinking, technology-focused, pushing boundaries</li>
-                            <li><strong>Authentic:</strong> Real performance claims backed by data and tour validation</li>
-                        </ul>
-                        <h3>Vocabulary</h3>
-                        <ul class="check-list">
-                            <li>Use technical terms with clear explanations for accessibility</li>
-                            <li>Reference specific technologies (e.g., Speed Pocket, Twist Face, Carbon Chassis)</li>
-                            <li>Include performance metrics where applicable</li>
-                            <li>Avoid hyperbole without substantiation</li>
-                        </ul>
-                        <h3>Positioning</h3>
-                        <ul class="check-list">
-                            <li>Premium but accessible—serious golfers at all levels</li>
-                            <li>Performance-first without being exclusionary</li>
-                            <li>Competitive without disparaging competitors</li>
-                            <li>Tour credibility as proof of performance</li>
-                        </ul>
-                    </div>
                 </section>
 
-                <!-- ==========================================
-                     SECTION: USE CASES
-                ========================================== -->
+                <!-- SECTION: USE CASES -->
                 <section id="usecases" class="section">
                     <h1 class="section-title">Marketing Use Cases</h1>
                     <p class="section-subtitle">Practical applications for every marketing function</p>
@@ -1830,16 +1317,13 @@ For each recommendation, provide follower count, engagement rate if available, c
                             <button class="tab-btn" onclick="switchTab(this, 'tab-social')">Social</button>
                             <button class="tab-btn" onclick="switchTab(this, 'tab-email')">Email</button>
                             <button class="tab-btn" onclick="switchTab(this, 'tab-product')">Product</button>
-                            <button class="tab-btn" onclick="switchTab(this, 'tab-analysis')">Analysis</button>
                         </div>
                     </div>
 
-                    <!-- Content Tab -->
                     <div id="tab-content" class="tab-content active">
                         <h2>Content Marketing</h2>
                         <div class="card">
                             <h3>Blog Posts & Articles</h3>
-                            <p>Generate long-form content including equipment guides, how-to articles, player profiles, and technology deep-dives.</p>
                             <div class="prompt-box">
                                 <div class="prompt-header">
                                     <span class="prompt-label">Blog Post Request</span>
@@ -1854,32 +1338,11 @@ The article should:
 - Include real performance data where possible
 - End with a forward-looking statement about continued innovation
 
-Target audience: Serious amateur golfers interested in equipment technology. Maintain our confident, innovative brand voice.</div>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <h3>Press Releases</h3>
-                            <div class="prompt-box">
-                                <div class="prompt-header">
-                                    <span class="prompt-label">Press Release</span>
-                                    <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
-                                </div>
-                                <div class="prompt-content">Write a press release announcing TaylorMade's partnership with [Player Name] for the upcoming PGA Tour season.
-
-Include:
-- Standard press release format with dateline (Carlsbad, CA)
-- Quote from player about why they chose TaylorMade
-- Quote from TaylorMade executive about the partnership
-- Player's recent accomplishments and equipment specs
-- Standard boilerplate about TaylorMade
-
-Tone: Professional, celebratory, focused on performance partnership.</div>
+Target audience: Serious amateur golfers interested in equipment technology.</div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Social Tab -->
                     <div id="tab-social" class="tab-content">
                         <h2>Social Media</h2>
                         <div class="card">
@@ -1889,56 +1352,24 @@ Tone: Professional, celebratory, focused on performance partnership.</div>
                                     <span class="prompt-label">Social Batch</span>
                                     <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
                                 </div>
-                                <div class="prompt-content">Create a week of social content promoting the Qi35 driver launch. For each day, provide:
+                                <div class="prompt-content">Create a week of social content promoting the Qi35 driver launch.
 
-Instagram (Feed):
-- Caption (150-200 characters)
-- 5 relevant hashtags
-- Suggested visual description
-
-Instagram (Story):
-- Short text overlay
-- Poll or interactive element idea
-
-Twitter/X:
-- Tweet (under 280 characters)
-- Optional thread expansion for key features
-
-LinkedIn:
-- Professional angle on the technology
-- Longer form (100-150 words)
+For each day, provide:
+- Instagram caption (150-200 characters) with 5 hashtags
+- Twitter/X tweet (under 280 characters)
+- LinkedIn post (100-150 words)
 
 Day 1: Teaser/anticipation
 Day 2: Launch announcement
-Day 3: Technology spotlight (forgiveness)
+Day 3: Technology spotlight
 Day 4: Tour validation
 Day 5: User-generated content prompt
 Day 6: Performance data highlight
 Day 7: Where to buy CTA</div>
                             </div>
                         </div>
-
-                        <div class="card">
-                            <h3>Community Engagement</h3>
-                            <div class="prompt-box">
-                                <div class="prompt-header">
-                                    <span class="prompt-label">Comment Responses</span>
-                                    <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
-                                </div>
-                                <div class="prompt-content">Help me respond to these common social media comments on TaylorMade posts. Keep responses friendly, helpful, and on-brand:
-
-1. "How does this compare to the Callaway?"
-2. "Too expensive, not worth it"
-3. "When is the new [product] coming out?"
-4. "Does [tour player] actually use this?"
-5. "This didn't work for me, waste of money"
-
-Provide 2-3 response options for each that are conversational and representative of TaylorMade's voice.</div>
-                            </div>
-                        </div>
                     </div>
 
-                    <!-- Email Tab -->
                     <div id="tab-email" class="tab-content">
                         <h2>Email Marketing</h2>
                         <div class="card">
@@ -1950,8 +1381,7 @@ Provide 2-3 response options for each that are conversational and representative
                                 </div>
                                 <div class="prompt-content">Write a product launch email for the new TP5 golf ball.
 
-Subject line options: Provide 5 options with different angles (curiosity, performance, exclusivity)
-
+Subject line options: Provide 5 options with different angles
 Preview text: 40-60 characters
 
 Body:
@@ -1960,39 +1390,12 @@ Body:
 - What's new vs. previous generation
 - Tour player validation
 - Clear CTA to shop or learn more
-- P.S. line with urgency element
 
-Tone: Exciting but substantive—we're launching a premium product, not running a clearance sale.</div>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <h3>Automated Sequences</h3>
-                            <div class="prompt-box">
-                                <div class="prompt-header">
-                                    <span class="prompt-label">Welcome Sequence</span>
-                                    <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
-                                </div>
-                                <div class="prompt-content">Create a 5-email welcome sequence for new TaylorMade newsletter subscribers.
-
-Email 1 (Day 0): Welcome + what to expect
-Email 2 (Day 2): Brand story + innovation heritage  
-Email 3 (Day 5): Equipment education + fitting value prop
-Email 4 (Day 8): Tour player spotlight + credibility
-Email 5 (Day 12): Exclusive offer or content access
-
-For each email provide:
-- Subject line (2 options)
-- Preview text
-- Body copy (200-300 words)
-- CTA
-
-Goal: Build brand affinity before pushing sales.</div>
+Tone: Exciting but substantive.</div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Product Tab -->
                     <div id="tab-product" class="tab-content">
                         <h2>Product Marketing</h2>
                         <div class="card">
@@ -2004,177 +1407,62 @@ Goal: Build brand affinity before pushing sales.</div>
                                 </div>
                                 <div class="prompt-content">Write website product descriptions for the Qi35 driver in three lengths:
 
-Short (50 words): For product cards and quick previews
+Short (50 words): For product cards
 Medium (150 words): For category pages
-Long (300 words): For the full product detail page
+Long (300 words): For product detail page
 
-Key features to include:
+Key features:
 - Largest face in TaylorMade history
 - Infinite Carbon Crown
-- Qi10-inspired forgiveness
 - Speed Pocket technology
-- Multiple loft and shaft options
 
-Maintain technical credibility while being accessible to golfers of all levels.</div>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <h3>Feature Explanations</h3>
-                            <div class="prompt-box">
-                                <div class="prompt-header">
-                                    <span class="prompt-label">Technology Explainer</span>
-                                    <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
-                                </div>
-                                <div class="prompt-content">Create clear explanations of TaylorMade's key technologies for use across marketing materials. For each technology:
-
-1. Twist Face
-2. Speed Pocket  
-3. Carbon Chassis
-4. Thru-Slot Speed Pocket
-
-Provide:
-- One-sentence summary (for quick reference)
-- 50-word explanation (for product pages)
-- 150-word deep dive (for educational content)
-- Simple analogy a casual golfer would understand
-
-Technical accuracy is essential—these need to be substantive, not marketing fluff.</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Analysis Tab -->
-                    <div id="tab-analysis" class="tab-content">
-                        <h2>Analysis & Strategy</h2>
-                        <div class="card">
-                            <h3>Competitive Analysis</h3>
-                            <div class="prompt-box">
-                                <div class="prompt-header">
-                                    <span class="prompt-label">Competitor Review</span>
-                                    <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
-                                </div>
-                                <div class="prompt-content">Analyze Titleist's current marketing approach for their TSR driver line. Research and provide:
-
-1. Messaging & Positioning
-   - Key claims and value propositions
-   - Target audience focus
-   - Differentiation strategy
-
-2. Channel Strategy
-   - Where are they most active?
-   - Content types and frequency
-   - Paid vs. organic emphasis
-
-3. Campaign Analysis
-   - Recent notable campaigns
-   - Influencer/ambassador strategy
-   - Retail partner coordination
-
-4. Strengths & Weaknesses
-   - What are they doing well?
-   - Where are the gaps?
-
-5. Implications for TaylorMade
-   - Opportunities to differentiate
-   - Threats to address
-   - Recommended tactical responses</div>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <h3>Campaign Brief Development</h3>
-                            <div class="prompt-box">
-                                <div class="prompt-header">
-                                    <span class="prompt-label">Campaign Brief</span>
-                                    <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
-                                </div>
-                                <div class="prompt-content">Help me develop a creative brief for a summer golf ball campaign. Generate a Word document with:
-
-1. Campaign Overview
-   - Name/theme options (3-5 suggestions)
-   - Campaign duration and key dates
-   - Budget range and allocation guidance
-
-2. Objectives
-   - Primary and secondary goals
-   - KPIs and success metrics
-
-3. Target Audience
-   - Primary and secondary segments
-   - Psychographic insights
-   - Key motivations and barriers
-
-4. Key Messages
-   - Primary message
-   - Supporting messages
-   - Proof points
-
-5. Creative Direction
-   - Tone and manner
-   - Visual territory suggestions
-   - Mandatory elements
-
-6. Channel Plan
-   - Priority channels
-   - Content requirements per channel
-   - Paid media considerations
-
-7. Timeline
-   - Key milestones
-   - Deliverable deadlines
-
-Create this as a downloadable Word document.</div>
+Maintain technical credibility while being accessible.</div>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- ==========================================
-                     SECTION: PROMPTING GUIDE
-                ========================================== -->
+                <!-- SECTION: PROMPTING GUIDE -->
                 <section id="prompts" class="section">
                     <h1 class="section-title">Prompting Guide</h1>
                     <p class="section-subtitle">How to get the best results from Claude</p>
 
                     <div class="card card-accent">
                         <h3>The Prompting Mindset</h3>
-                        <p>Claude isn't a search engine or a magic box—it's more like a very capable colleague who needs clear direction. The more context and specificity you provide, the better your results will be. Think of prompts as creative briefs: what would you give a skilled contractor to ensure they deliver exactly what you need?</p>
+                        <p>Claude isn't a search engine or a magic box—it's more like a very capable colleague who needs clear direction. The more context and specificity you provide, the better your results will be.</p>
                     </div>
 
-                    <h2>Prompting Best Practices</h2>
+                    <h2>Best Practices</h2>
                     <div class="feature-grid">
                         <div class="feature-card">
-                            <div class="feature-icon">🎯</div>
+                            <div class="feature-icon"><i data-lucide="crosshair" style="width:24px;height:24px;"></i></div>
                             <div class="feature-title">Be Specific</div>
-                            <div class="feature-desc">Include word counts, format requirements, tone descriptions, and structural expectations. "Write a blog post" is weak; "Write a 1,200-word blog post with 5 sections" is strong.</div>
+                            <div class="feature-desc">Include word counts, format requirements, tone descriptions. "Write a blog post" is weak; "Write a 1,200-word blog post with 5 sections" is strong.</div>
                         </div>
                         <div class="feature-card">
-                            <div class="feature-icon">📝</div>
+                            <div class="feature-icon"><i data-lucide="info" style="width:24px;height:24px;"></i></div>
                             <div class="feature-title">Provide Context</div>
-                            <div class="feature-desc">Share relevant background: who is the audience, what's the goal, where will this appear, what came before? Context shapes output quality dramatically.</div>
+                            <div class="feature-desc">Share relevant background: who is the audience, what's the goal, where will this appear?</div>
                         </div>
                         <div class="feature-card">
-                            <div class="feature-icon">📋</div>
+                            <div class="feature-icon"><i data-lucide="copy" style="width:24px;height:24px;"></i></div>
                             <div class="feature-title">Give Examples</div>
-                            <div class="feature-desc">Show Claude what good looks like. Upload examples, paste samples, or describe the style of content you're trying to match.</div>
+                            <div class="feature-desc">Show Claude what good looks like. Upload examples, paste samples, or describe the style to match.</div>
                         </div>
                         <div class="feature-card">
-                            <div class="feature-icon">🔄</div>
+                            <div class="feature-icon"><i data-lucide="refresh-cw" style="width:24px;height:24px;"></i></div>
                             <div class="feature-title">Iterate</div>
-                            <div class="feature-desc">First drafts are starting points. Ask for revisions, adjustments, and alternatives. "Make it more conversational" or "Shorten by 30%" are valid follow-ups.</div>
+                            <div class="feature-desc">First drafts are starting points. Ask for revisions. "Make it more conversational" or "Shorten by 30%" are valid follow-ups.</div>
                         </div>
                     </div>
 
-                    <h2>Prompt Structure Framework</h2>
-                    <div class="card">
-                        <p>For complex requests, use this structure to ensure completeness:</p>
-                        <div class="prompt-box">
-                            <div class="prompt-header">
-                                <span class="prompt-label">Prompt Template</span>
-                                <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
-                            </div>
-                            <div class="prompt-content">ROLE: [Who should Claude be? e.g., "You are a senior copywriter at TaylorMade"]
+                    <h2>Prompt Template</h2>
+                    <div class="prompt-box">
+                        <div class="prompt-header">
+                            <span class="prompt-label">Structure Framework</span>
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        </div>
+                        <div class="prompt-content">ROLE: [Who should Claude be? e.g., "You are a senior copywriter at TaylorMade"]
 
 TASK: [What do you need? Be specific about deliverable]
 
@@ -2185,147 +1473,60 @@ FORMAT: [Structure, length, style requirements]
 EXAMPLES: [What good looks like, or what to avoid]
 
 OUTPUT: [Exactly what you want back—file type, sections, etc.]</div>
-                        </div>
-                    </div>
-
-                    <h2>Common Prompting Patterns</h2>
-                    <div class="accordion">
-                        <div class="accordion-item">
-                            <button class="accordion-header" onclick="toggleAccordion(this)">
-                                <span class="accordion-title">Batch Content Generation</span>
-                                <span class="accordion-icon">+</span>
-                            </button>
-                            <div class="accordion-content">
-                                <p>Generate multiple variations efficiently:</p>
-                                <div class="prompt-box">
-                                    <div class="prompt-header">
-                                        <span class="prompt-label">Batch Request</span>
-                                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
-                                    </div>
-                                    <div class="prompt-content">Generate 10 Instagram captions for TaylorMade driver content. For each caption:
-
-- 100-150 characters
-- Include 1 emoji
-- End with a CTA
-- Vary the angles: technology, distance, forgiveness, tour validation, confidence
-
-Format as a numbered list I can copy directly.</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <button class="accordion-header" onclick="toggleAccordion(this)">
-                                <span class="accordion-title">A/B Test Variations</span>
-                                <span class="accordion-icon">+</span>
-                            </button>
-                            <div class="accordion-content">
-                                <p>Get multiple options to test:</p>
-                                <div class="prompt-box">
-                                    <div class="prompt-header">
-                                        <span class="prompt-label">A/B Variations</span>
-                                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
-                                    </div>
-                                    <div class="prompt-content">Write 5 email subject lines for our TP5 golf ball campaign, each with a different psychological angle:
-
-1. Curiosity-based
-2. Benefit-focused
-3. Social proof / authority
-4. Urgency / scarcity
-5. Question format
-
-Keep each under 50 characters. Indicate which you'd recommend testing first and why.</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <button class="accordion-header" onclick="toggleAccordion(this)">
-                                <span class="accordion-title">Adaptation / Localization</span>
-                                <span class="accordion-icon">+</span>
-                            </button>
-                            <div class="accordion-content">
-                                <p>Adapt content for different markets or platforms:</p>
-                                <div class="prompt-box">
-                                    <div class="prompt-header">
-                                        <span class="prompt-label">Localization Request</span>
-                                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
-                                    </div>
-                                    <div class="prompt-content">Adapt this US product launch email for the UK and Japanese markets.
-
-[Paste original email]
-
-For UK:
-- Adjust spelling and terminology
-- Modify any US-specific references
-- Adjust cultural tone as needed
-
-For Japan:
-- Provide Japanese translation
-- Adapt messaging for Japanese golf culture
-- Note any imagery or reference changes needed
-
-Flag any elements that may not translate well culturally.</div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
                     <h2>What NOT to Do</h2>
                     <div class="card">
-                        <p>Avoid these common prompting mistakes:</p>
                         <ul class="check-list">
                             <li><strong>Being too vague:</strong> "Write something about golf" gives Claude nothing to work with</li>
-                            <li><strong>Skipping context:</strong> Claude doesn't know your campaign history, audience, or goals unless you share them</li>
-                            <li><strong>One-and-done thinking:</strong> Iteration almost always produces better results than accepting the first output</li>
-                            <li><strong>Ignoring format:</strong> Specify exactly what you want back—word count, structure, file type</li>
-                            <li><strong>Massive prompts:</strong> If your prompt is 2,000 words, consider breaking into a conversation</li>
+                            <li><strong>Skipping context:</strong> Claude doesn't know your campaign history unless you share it</li>
+                            <li><strong>One-and-done thinking:</strong> Iteration almost always produces better results</li>
+                            <li><strong>Ignoring format:</strong> Specify exactly what you want back</li>
                         </ul>
                     </div>
                 </section>
 
-                <!-- ==========================================
-                     SECTION: WORKFLOWS
-                ========================================== -->
+                <!-- SECTION: WORKFLOWS -->
                 <section id="workflows" class="section">
                     <h1 class="section-title">Workflows</h1>
                     <p class="section-subtitle">End-to-end processes for common marketing tasks</p>
 
                     <h2>Campaign Launch Workflow</h2>
                     <div class="card">
-                        <p>Use this workflow when launching a new product or campaign:</p>
                         <div class="workflow-steps">
                             <div class="workflow-step">
                                 <div class="step-number">1</div>
                                 <div class="step-content">
                                     <div class="step-title">Research Phase</div>
-                                    <div class="step-desc">Use web search to analyze competitor positioning, market trends, and audience sentiment. Ask Claude to compile findings into a brief.</div>
+                                    <div class="step-desc">Use web search to analyze competitor positioning, market trends, and audience sentiment.</div>
                                 </div>
                             </div>
                             <div class="workflow-step">
                                 <div class="step-number">2</div>
                                 <div class="step-content">
                                     <div class="step-title">Strategy Development</div>
-                                    <div class="step-desc">Upload your research and product specs. Ask Claude to generate messaging frameworks, positioning options, and creative concepts.</div>
+                                    <div class="step-desc">Upload research and product specs. Ask Claude to generate messaging frameworks and creative concepts.</div>
                                 </div>
                             </div>
                             <div class="workflow-step">
                                 <div class="step-number">3</div>
                                 <div class="step-content">
                                     <div class="step-title">Content Creation</div>
-                                    <div class="step-desc">Generate all campaign assets: email sequences, social posts, ad copy, landing page copy, press materials. Use batch generation for efficiency.</div>
+                                    <div class="step-desc">Generate all campaign assets: email sequences, social posts, ad copy, landing page copy.</div>
                                 </div>
                             </div>
                             <div class="workflow-step">
                                 <div class="step-number">4</div>
                                 <div class="step-content">
                                     <div class="step-title">Localization</div>
-                                    <div class="step-desc">Adapt content for international markets. Generate translations and cultural adaptations for each region.</div>
+                                    <div class="step-desc">Adapt content for international markets with culturally-aware translations.</div>
                                 </div>
                             </div>
                             <div class="workflow-step">
                                 <div class="step-number">5</div>
                                 <div class="step-content">
                                     <div class="step-title">Documentation</div>
-                                    <div class="step-desc">Create campaign briefs, stakeholder presentations, and tracking spreadsheets using Claude's file creation capabilities.</div>
+                                    <div class="step-desc">Create campaign briefs, presentations, and tracking spreadsheets using file creation.</div>
                                 </div>
                             </div>
                         </div>
@@ -2333,106 +1534,68 @@ Flag any elements that may not translate well culturally.</div>
 
                     <h2>Content Calendar Workflow</h2>
                     <div class="card">
-                        <p>Efficient process for planning and producing ongoing content:</p>
                         <div class="workflow-steps">
                             <div class="workflow-step">
                                 <div class="step-number">1</div>
                                 <div class="step-content">
                                     <div class="step-title">Monthly Planning</div>
-                                    <div class="step-desc">Share upcoming themes, launches, and events. Ask Claude to suggest content topics and a posting cadence for each channel.</div>
+                                    <div class="step-desc">Share upcoming themes and launches. Ask Claude to suggest content topics for each channel.</div>
                                 </div>
                             </div>
                             <div class="workflow-step">
                                 <div class="step-number">2</div>
                                 <div class="step-content">
                                     <div class="step-title">Batch Production</div>
-                                    <div class="step-desc">Generate a full week or month of content at once. Request all social posts for Instagram, Twitter, LinkedIn, and Facebook in a single session.</div>
+                                    <div class="step-desc">Generate a full week or month of content at once across all platforms.</div>
                                 </div>
                             </div>
                             <div class="workflow-step">
                                 <div class="step-number">3</div>
                                 <div class="step-content">
                                     <div class="step-title">Review & Refine</div>
-                                    <div class="step-desc">Review outputs, request revisions, and iterate on any pieces that need adjustment. Build a library of approved content.</div>
+                                    <div class="step-desc">Review outputs, request revisions, and iterate on any pieces that need adjustment.</div>
                                 </div>
                             </div>
                             <div class="workflow-step">
                                 <div class="step-number">4</div>
                                 <div class="step-content">
                                     <div class="step-title">Export & Schedule</div>
-                                    <div class="step-desc">Ask Claude to format content for your scheduling tool or export as a spreadsheet you can import directly.</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h2>Competitive Intelligence Workflow</h2>
-                    <div class="card">
-                        <p>Stay ahead of competitor activities:</p>
-                        <div class="workflow-steps">
-                            <div class="workflow-step">
-                                <div class="step-number">1</div>
-                                <div class="step-content">
-                                    <div class="step-title">Identify Competitors</div>
-                                    <div class="step-desc">Create a Project with competitor information. List primary and secondary competitors, their products, and market positioning.</div>
-                                </div>
-                            </div>
-                            <div class="workflow-step">
-                                <div class="step-number">2</div>
-                                <div class="step-content">
-                                    <div class="step-title">Regular Monitoring</div>
-                                    <div class="step-desc">Use web search weekly to find competitor news, product launches, and marketing activities. Ask Claude to summarize key developments.</div>
-                                </div>
-                            </div>
-                            <div class="workflow-step">
-                                <div class="step-number">3</div>
-                                <div class="step-content">
-                                    <div class="step-title">Deep Analysis</div>
-                                    <div class="step-desc">For major competitor moves, request detailed analysis: messaging breakdown, apparent strategy, potential response options.</div>
-                                </div>
-                            </div>
-                            <div class="workflow-step">
-                                <div class="step-number">4</div>
-                                <div class="step-content">
-                                    <div class="step-title">Report Generation</div>
-                                    <div class="step-desc">Generate monthly competitive reports as PowerPoint or Word documents for stakeholder distribution.</div>
+                                    <div class="step-desc">Ask Claude to format content as a spreadsheet you can import into your scheduling tool.</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- ==========================================
-                     SECTION: BRAND VOICE
-                ========================================== -->
+                <!-- SECTION: BRAND VOICE -->
                 <section id="brand" class="section">
                     <h1 class="section-title">Brand Voice</h1>
                     <p class="section-subtitle">Maintaining TaylorMade's voice across AI-generated content</p>
 
                     <div class="card card-accent">
                         <h3>Why Voice Consistency Matters</h3>
-                        <p>AI can generate content quickly, but consistency is what builds brand recognition. Every piece of content—whether written by a human or AI—should feel unmistakably TaylorMade. This section provides guidance for ensuring AI outputs match our brand standards.</p>
+                        <p>AI can generate content quickly, but consistency is what builds brand recognition. Every piece of content—whether written by a human or AI—should feel unmistakably TaylorMade.</p>
                     </div>
 
                     <h2>TaylorMade Voice Attributes</h2>
                     <div class="feature-grid">
                         <div class="feature-card">
-                            <div class="feature-icon">💪</div>
+                            <div class="feature-icon"><i data-lucide="award" style="width:24px;height:24px;"></i></div>
                             <div class="feature-title">Confident</div>
-                            <div class="feature-desc">We speak with authority earned through decades of innovation and tour success. We make bold claims—and back them up with data and proof.</div>
+                            <div class="feature-desc">We speak with authority earned through decades of innovation and tour success. We make bold claims—and back them up.</div>
                         </div>
                         <div class="feature-card">
-                            <div class="feature-icon">❤️</div>
+                            <div class="feature-icon"><i data-lucide="heart" style="width:24px;height:24px;"></i></div>
                             <div class="feature-title">Passionate</div>
-                            <div class="feature-desc">Genuine enthusiasm for golf and equipment innovation. We love what we do, and that energy comes through in how we communicate.</div>
+                            <div class="feature-desc">Genuine enthusiasm for golf and equipment innovation. We love what we do, and that energy comes through.</div>
                         </div>
                         <div class="feature-card">
-                            <div class="feature-icon">🚀</div>
+                            <div class="feature-icon"><i data-lucide="lightbulb" style="width:24px;height:24px;"></i></div>
                             <div class="feature-title">Innovative</div>
                             <div class="feature-desc">Forward-thinking and technology-focused. We're always pushing boundaries and bringing new ideas to the game.</div>
                         </div>
                         <div class="feature-card">
-                            <div class="feature-icon">✓</div>
+                            <div class="feature-icon"><i data-lucide="check-circle" style="width:24px;height:24px;"></i></div>
                             <div class="feature-title">Authentic</div>
                             <div class="feature-desc">Real performance claims backed by real evidence. No empty marketing speak—everything we say is substantiated.</div>
                         </div>
@@ -2464,24 +1627,17 @@ Flag any elements that may not translate well culturally.</div>
                                     <td>"Designed for golfers seeking more forgiveness"</td>
                                     <td>"Perfect for everyone!"</td>
                                 </tr>
-                                <tr>
-                                    <td>"The result of 3 years of R&D"</td>
-                                    <td>"Brand new incredible innovation"</td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
 
-                    <h2>Configuring Claude for Brand Voice</h2>
-                    <div class="card">
-                        <h3>Project Instructions Template</h3>
-                        <p>Add these instructions to any TaylorMade marketing Project:</p>
-                        <div class="prompt-box">
-                            <div class="prompt-header">
-                                <span class="prompt-label">Brand Instructions</span>
-                                <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
-                            </div>
-                            <div class="prompt-content">You are creating content for TaylorMade Golf, a premium golf equipment brand. 
+                    <h2>Project Instructions Template</h2>
+                    <div class="prompt-box">
+                        <div class="prompt-header">
+                            <span class="prompt-label">Brand Instructions</span>
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        </div>
+                        <div class="prompt-content">You are creating content for TaylorMade Golf, a premium golf equipment brand. 
 
 VOICE GUIDELINES:
 - Confident but not arrogant
@@ -2492,30 +1648,20 @@ VOICE GUIDELINES:
 - Competitive without disparaging competitors
 
 AVOID:
-- Generic marketing superlatives ("best ever," "revolutionary," "game-changing")
+- Generic superlatives ("best ever," "revolutionary," "game-changing")
 - Excessive exclamation points
 - Unsubstantiated claims
 - Condescending tone toward amateur golfers
-- Price-focused messaging (we compete on performance, not price)
 
 ALWAYS INCLUDE:
-- Specific technology names where relevant (Twist Face, Speed Pocket, etc.)
+- Specific technology names where relevant
 - Performance data when available
 - Tour validation when relevant
-- Clear, actionable CTAs
-
-TONE CALIBRATION:
-- Product pages: Technical, detailed, authoritative
-- Social media: Energetic, engaging, conversational
-- Email: Personal, helpful, action-oriented
-- Press releases: Professional, newsworthy, quotable</div>
-                        </div>
+- Clear, actionable CTAs</div>
                     </div>
                 </section>
 
-                <!-- ==========================================
-                     SECTION: PLANS & PRICING
-                ========================================== -->
+                <!-- SECTION: PLANS & PRICING -->
                 <section id="plans" class="section">
                     <h1 class="section-title">Plans & Pricing</h1>
                     <p class="section-subtitle">Understanding Claude access options for enterprise marketing teams</p>
@@ -2538,28 +1684,7 @@ TONE CALIBRATION:
                                     <td>Standard</td>
                                     <td>5× Pro limits</td>
                                     <td>Higher than Pro</td>
-                                    <td>Custom / Unlimited</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Claude Models</strong></td>
-                                    <td>Opus 4.5, Sonnet 4.5, Haiku 4.5</td>
-                                    <td>All models + priority</td>
-                                    <td>All models</td>
-                                    <td>All models + priority</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Extended Context</strong></td>
-                                    <td>200K tokens</td>
-                                    <td>500K tokens</td>
-                                    <td>200K tokens</td>
-                                    <td>500K tokens</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Web Search</strong></td>
-                                    <td>✓</td>
-                                    <td>✓</td>
-                                    <td>✓</td>
-                                    <td>✓</td>
+                                    <td>Custom</td>
                                 </tr>
                                 <tr>
                                     <td><strong>File Creation</strong></td>
@@ -2576,87 +1701,40 @@ TONE CALIBRATION:
                                     <td>Organization-wide</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Connectors</strong></td>
+                                    <td><strong>Connectors (M365)</strong></td>
                                     <td>—</td>
                                     <td>—</td>
-                                    <td>Microsoft 365, Slack, etc.</td>
-                                    <td>Microsoft 365, Slack, etc.</td>
+                                    <td>✓</td>
+                                    <td>✓</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Admin Controls</strong></td>
                                     <td>—</td>
                                     <td>—</td>
                                     <td>Basic</td>
-                                    <td>Full (SSO, SCIM, etc.)</td>
+                                    <td>Full (SSO, SCIM)</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Data Training</strong></td>
                                     <td>Opt-out available</td>
-                                    <td>Not used for training</td>
-                                    <td>Not used for training</td>
-                                    <td>Not used for training</td>
+                                    <td>Not used</td>
+                                    <td>Not used</td>
+                                    <td>Not used</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
 
                     <div class="alert alert-info">
-                        <span class="alert-icon">💡</span>
+                        <i data-lucide="lightbulb" class="alert-icon"></i>
                         <div class="alert-content">
                             <div class="alert-title">TaylorMade Recommendation</div>
-                            <p class="alert-text">For marketing teams, <strong>Team</strong> or <strong>Enterprise</strong> plans are recommended. They provide file creation capabilities, shared Projects for team collaboration, and ensure your marketing content isn't used for AI training.</p>
-                        </div>
-                    </div>
-
-                    <h2>Key Features by Plan</h2>
-                    <div class="accordion">
-                        <div class="accordion-item">
-                            <button class="accordion-header" onclick="toggleAccordion(this)">
-                                <span class="accordion-title">Pro Plan - Individual Marketers</span>
-                                <span class="accordion-icon">+</span>
-                            </button>
-                            <div class="accordion-content">
-                                <p>Best for individual contributors who need reliable AI assistance for content creation, analysis, and research. Includes all Claude models, web search, and Projects for personal organization.</p>
-                                <p><strong>Limitations:</strong> No file creation (XLSX, PPTX, DOCX), no team sharing, standard message limits.</p>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <button class="accordion-header" onclick="toggleAccordion(this)">
-                                <span class="accordion-title">Max Plan - Power Users</span>
-                                <span class="accordion-icon">+</span>
-                            </button>
-                            <div class="accordion-content">
-                                <p>For individual power users who need higher limits and file creation capabilities. Includes 5× message limits, extended context windows, and full file creation.</p>
-                                <p><strong>Best for:</strong> Freelancers, consultants, or team leads who need maximum individual capacity.</p>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <button class="accordion-header" onclick="toggleAccordion(this)">
-                                <span class="accordion-title">Team Plan - Marketing Teams</span>
-                                <span class="accordion-icon">+</span>
-                            </button>
-                            <div class="accordion-content">
-                                <p>Designed for collaborative teams. Share Projects across team members, maintain consistent context, and benefit from admin controls. Includes file creation and enterprise connectors (Microsoft 365, Slack) for all team members.</p>
-                                <p><strong>Pricing:</strong> $30/user/month (or $25/user/month billed annually). Minimum 5 users.</p>
-                                <p><strong>Best for:</strong> Marketing departments, agencies, and collaborative teams.</p>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <button class="accordion-header" onclick="toggleAccordion(this)">
-                                <span class="accordion-title">Enterprise Plan - Organizations</span>
-                                <span class="accordion-icon">+</span>
-                            </button>
-                            <div class="accordion-content">
-                                <p>Full enterprise features including SSO integration, SCIM provisioning, audit logs, and custom deployment options. Extended context windows and priority access to all models.</p>
-                                <p><strong>Best for:</strong> Large organizations with security, compliance, and scale requirements.</p>
-                            </div>
+                            <p class="alert-text">For marketing teams, <strong>Team</strong> or <strong>Enterprise</strong> plans are recommended. They provide file creation, shared Projects, Microsoft 365 connectors, and ensure your marketing content isn't used for AI training.</p>
                         </div>
                     </div>
                 </section>
 
-                <!-- ==========================================
-                     SECTION: SECURITY
-                ========================================== -->
+                <!-- SECTION: SECURITY -->
                 <section id="security" class="section">
                     <h1 class="section-title">Security & Compliance</h1>
                     <p class="section-subtitle">Enterprise-grade security for brand protection</p>
@@ -2669,70 +1747,25 @@ TONE CALIBRATION:
                     <h2>Security Certifications</h2>
                     <div class="feature-grid">
                         <div class="feature-card">
-                            <div class="feature-icon">🛡️</div>
+                            <div class="feature-icon"><i data-lucide="shield-check" style="width:24px;height:24px;"></i></div>
                             <div class="feature-title">SOC 2 Type II</div>
-                            <div class="feature-desc">Anthropic maintains SOC 2 Type II compliance, demonstrating security controls for data protection, availability, and confidentiality.</div>
+                            <div class="feature-desc">Anthropic maintains SOC 2 Type II compliance for data protection, availability, and confidentiality.</div>
                         </div>
                         <div class="feature-card">
-                            <div class="feature-icon">🔒</div>
+                            <div class="feature-icon"><i data-lucide="lock" style="width:24px;height:24px;"></i></div>
                             <div class="feature-title">Encryption</div>
-                            <div class="feature-desc">All data encrypted in transit (TLS 1.2+) and at rest (AES-256). Enterprise plans offer additional encryption controls.</div>
+                            <div class="feature-desc">All data encrypted in transit (TLS 1.2+) and at rest (AES-256).</div>
                         </div>
                         <div class="feature-card">
-                            <div class="feature-icon">🌐</div>
+                            <div class="feature-icon"><i data-lucide="globe" style="width:24px;height:24px;"></i></div>
                             <div class="feature-title">GDPR Compliant</div>
-                            <div class="feature-desc">Anthropic complies with GDPR requirements for EU data subjects, with options for data processing agreements.</div>
+                            <div class="feature-desc">Anthropic complies with GDPR requirements for EU data subjects.</div>
                         </div>
                         <div class="feature-card">
-                            <div class="feature-icon">📋</div>
+                            <div class="feature-icon"><i data-lucide="clipboard-check" style="width:24px;height:24px;"></i></div>
                             <div class="feature-title">HIPAA Eligible</div>
-                            <div class="feature-desc">Enterprise plans can be configured for HIPAA compliance where required for health-related marketing.</div>
+                            <div class="feature-desc">Enterprise plans can be configured for HIPAA compliance where required.</div>
                         </div>
-                    </div>
-
-                    <h2>Enterprise Security Features</h2>
-                    <div class="table-wrapper">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Feature</th>
-                                    <th>Description</th>
-                                    <th>Availability</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>SSO Integration</strong></td>
-                                    <td>SAML 2.0 single sign-on with your identity provider</td>
-                                    <td>Enterprise</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>SCIM Provisioning</strong></td>
-                                    <td>Automated user provisioning and deprovisioning</td>
-                                    <td>Enterprise</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Audit Logs</strong></td>
-                                    <td>Comprehensive logs of user activity and access</td>
-                                    <td>Enterprise</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Data Retention Controls</strong></td>
-                                    <td>Configure how long conversation data is retained</td>
-                                    <td>Enterprise</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Admin Console</strong></td>
-                                    <td>Manage users, permissions, and settings centrally</td>
-                                    <td>Team, Enterprise</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>No Training on Data</strong></td>
-                                    <td>Your data never used to improve Claude models</td>
-                                    <td>Team, Enterprise</td>
-                                </tr>
-                            </tbody>
-                        </table>
                     </div>
 
                     <h2>Best Practices for Marketing Teams</h2>
@@ -2741,16 +1774,13 @@ TONE CALIBRATION:
                             <li><strong>Use Team/Enterprise plans</strong> for any proprietary or competitive content</li>
                             <li><strong>Don't share credentials</strong> – each user should have their own account</li>
                             <li><strong>Review before publishing</strong> – AI output should always be reviewed by humans</li>
-                            <li><strong>Be mindful of uploads</strong> – don't upload sensitive financial or legal documents unnecessarily</li>
+                            <li><strong>Be mindful of uploads</strong> – don't upload sensitive documents unnecessarily</li>
                             <li><strong>Use Projects strategically</strong> – organize by sensitivity level if needed</li>
-                            <li><strong>Clear conversations</strong> – delete sensitive conversations when no longer needed</li>
                         </ul>
                     </div>
                 </section>
 
-                <!-- ==========================================
-                     SECTION: IMPLEMENTATION
-                ========================================== -->
+                <!-- SECTION: IMPLEMENTATION -->
                 <section id="implementation" class="section">
                     <h1 class="section-title">Implementation</h1>
                     <p class="section-subtitle">Getting your marketing team up and running with Claude</p>
@@ -2761,56 +1791,28 @@ TONE CALIBRATION:
                             <div class="step-number">1</div>
                             <div class="step-content">
                                 <div class="step-title">Week 1: Foundation</div>
-                                <div class="step-desc">
-                                    <ul class="check-list">
-                                        <li>Confirm plan and access for all team members</li>
-                                        <li>Create core Projects (Brand Voice, each product vertical)</li>
-                                        <li>Upload brand guidelines and style samples</li>
-                                        <li>Set up Custom Style with best content examples</li>
-                                    </ul>
-                                </div>
+                                <div class="step-desc">Confirm access for all team members. Create core Projects. Upload brand guidelines. Set up Custom Style with best content examples.</div>
                             </div>
                         </div>
                         <div class="workflow-step">
                             <div class="step-number">2</div>
                             <div class="step-content">
                                 <div class="step-title">Week 2: Training</div>
-                                <div class="step-desc">
-                                    <ul class="check-list">
-                                        <li>Team training session on Claude basics</li>
-                                        <li>Share this guide with all marketing team members</li>
-                                        <li>Practice with low-stakes content (social posts, drafts)</li>
-                                        <li>Establish prompting best practices and templates</li>
-                                    </ul>
-                                </div>
+                                <div class="step-desc">Team training session on Claude basics. Share this guide. Practice with low-stakes content like social post drafts.</div>
                             </div>
                         </div>
                         <div class="workflow-step">
                             <div class="step-number">3</div>
                             <div class="step-content">
                                 <div class="step-title">Week 3: Integration</div>
-                                <div class="step-desc">
-                                    <ul class="check-list">
-                                        <li>Integrate Claude into daily workflows</li>
-                                        <li>Begin using for real deliverables (with review)</li>
-                                        <li>Document successful prompts and approaches</li>
-                                        <li>Share wins and learnings across team</li>
-                                    </ul>
-                                </div>
+                                <div class="step-desc">Integrate Claude into daily workflows. Begin using for real deliverables with review. Document successful prompts.</div>
                             </div>
                         </div>
                         <div class="workflow-step">
                             <div class="step-number">4</div>
                             <div class="step-content">
                                 <div class="step-title">Week 4: Optimization</div>
-                                <div class="step-desc">
-                                    <ul class="check-list">
-                                        <li>Review usage and identify additional opportunities</li>
-                                        <li>Refine Project setups and Custom Styles based on learnings</li>
-                                        <li>Create team prompt library for common tasks</li>
-                                        <li>Establish ongoing governance and review processes</li>
-                                    </ul>
-                                </div>
+                                <div class="step-desc">Review usage and identify additional opportunities. Refine Project setups. Create team prompt library for common tasks.</div>
                             </div>
                         </div>
                     </div>
@@ -2820,7 +1822,7 @@ TONE CALIBRATION:
                         <h3>Establish Your Baseline First</h3>
                         <p>Before rolling out Claude, document your current state so you can measure actual improvement:</p>
                         <ul class="check-list">
-                            <li><strong>Time per deliverable:</strong> How long does it take to write a product description? A blog post? A social batch?</li>
+                            <li><strong>Time per deliverable:</strong> How long does it take to write a product description? A blog post?</li>
                             <li><strong>Content volume:</strong> How many pieces does your team produce per week/month?</li>
                             <li><strong>Revision cycles:</strong> How many rounds of edits before content is approved?</li>
                             <li><strong>Agency spend:</strong> What do you currently outsource and at what cost?</li>
@@ -2830,20 +1832,19 @@ TONE CALIBRATION:
                     <div class="card">
                         <h3>Track These Metrics Post-Implementation</h3>
                         <ul class="check-list">
-                            <li><strong>Time savings:</strong> Compare time-to-completion for similar deliverables before and after Claude</li>
+                            <li><strong>Time savings:</strong> Compare time-to-completion for similar deliverables</li>
                             <li><strong>Output increase:</strong> Measure change in content volume with same team size</li>
-                            <li><strong>Quality consistency:</strong> Track brand voice adherence and stakeholder approval rates</li>
+                            <li><strong>Quality consistency:</strong> Track brand voice adherence and approval rates</li>
                             <li><strong>Cost impact:</strong> Document any reduction in agency or contractor spend</li>
-                            <li><strong>Speed to market:</strong> Measure time from brief to published content</li>
-                            <li><strong>Team adoption:</strong> Track active users and usage patterns across the team</li>
+                            <li><strong>Team adoption:</strong> Track active users and usage patterns</li>
                         </ul>
                     </div>
 
                     <div class="alert alert-info">
-                        <span class="alert-icon">📊</span>
+                        <i data-lucide="bar-chart-2" class="alert-icon"></i>
                         <div class="alert-content">
                             <div class="alert-title">Set Realistic Expectations</div>
-                            <p class="alert-text">Results vary by use case and team. Some tasks (like generating social post variations) see immediate efficiency gains. Others (like strategic documents) may see quality improvements rather than time savings. Measure what matters for your specific workflows.</p>
+                            <p class="alert-text">Results vary by use case. Some tasks (like generating social post variations) see immediate efficiency gains. Others (like strategic documents) may see quality improvements rather than time savings. Measure what matters for your specific workflows.</p>
                         </div>
                     </div>
 
@@ -2859,36 +1860,34 @@ TONE CALIBRATION:
                     </div>
                 </section>
 
-            </div><!-- /content-wrapper -->
-        </main><!-- /main-content -->
-    </div><!-- /main-layout -->
+            </div>
+        </main>
+    </div>
 
-    <!-- JAVASCRIPT -->
     <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
         // Section Navigation
         function showSection(sectionId, event) {
             if (event) event.preventDefault();
             
-            // Hide all sections
             document.querySelectorAll('.section').forEach(section => {
                 section.classList.remove('active');
             });
             
-            // Show target section
             document.getElementById(sectionId).classList.add('active');
             
-            // Update nav active state
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.classList.remove('active');
             });
             event.target.closest('.nav-link').classList.add('active');
             
-            // Scroll to top of content
             document.querySelector('.main-content').scrollTop = 0;
             
-            // Close sidebar on mobile
             if (window.innerWidth <= 1024) {
                 document.getElementById('sidebar').classList.remove('open');
+                document.getElementById('sidebarOverlay').classList.remove('active');
             }
         }
 
@@ -2896,13 +1895,11 @@ TONE CALIBRATION:
         function switchTab(button, tabId) {
             const tabContainer = button.closest('.section');
             
-            // Update tab buttons
             tabContainer.querySelectorAll('.tab-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
             button.classList.add('active');
             
-            // Update tab content
             tabContainer.querySelectorAll('.tab-content').forEach(content => {
                 content.classList.remove('active');
             });
@@ -2932,32 +1929,20 @@ TONE CALIBRATION:
             });
         }
 
-        // Sidebar Toggle - works on all screen sizes
+        // Sidebar Toggle
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
             const mainContent = document.querySelector('.main-content');
             const overlay = document.getElementById('sidebarOverlay');
             
             if (window.innerWidth <= 1024) {
-                // Mobile: slide in/out
                 sidebar.classList.toggle('open');
                 overlay.classList.toggle('active');
             } else {
-                // Desktop: collapse/expand
                 sidebar.classList.toggle('collapsed');
                 mainContent.classList.toggle('expanded');
             }
         }
-
-        // Close sidebar on mobile when clicking a link
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function() {
-                if (window.innerWidth <= 1024) {
-                    document.getElementById('sidebar').classList.remove('open');
-                    document.getElementById('sidebarOverlay').classList.remove('active');
-                }
-            });
-        });
 
         // Handle window resize
         window.addEventListener('resize', function() {
