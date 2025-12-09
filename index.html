@@ -842,7 +842,7 @@
         <div class="header-content">
             <div class="logo-area">
                 <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
-                <div class="logo">TaylorMade</div>
+                <img src="taylor-made-golf-vector-logo.png" alt="TaylorMade" class="logo-img" style="height: 28px; width: auto; filter: brightness(0) invert(1);">
                 <div class="logo-divider"></div>
                 <div class="header-title">Claude AI Marketing Guide</div>
             </div>
@@ -868,6 +868,7 @@
                         <li><a href="#projects" class="nav-link" onclick="showSection('projects', event)"><span class="nav-icon">📁</span>Projects</a></li>
                         <li><a href="#files" class="nav-link" onclick="showSection('files', event)"><span class="nav-icon">📄</span>File Creation</a></li>
                         <li><a href="#research" class="nav-link" onclick="showSection('research', event)"><span class="nav-icon">🔍</span>Web Search</a></li>
+                        <li><a href="#connectors" class="nav-link" onclick="showSection('connectors', event)"><span class="nav-icon">🔗</span>Connectors<span class="nav-badge">New</span></a></li>
                         <li><a href="#styles" class="nav-link" onclick="showSection('styles', event)"><span class="nav-icon">✨</span>Custom Styles</a></li>
                     </ul>
                 </div>
@@ -903,27 +904,27 @@
 
                     <div class="stats-grid">
                         <div class="stat-card">
-                            <div class="stat-value">4×</div>
-                            <div class="stat-label">Content Output</div>
+                            <div class="stat-value">~150K</div>
+                            <div class="stat-label">Words Per Conversation</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-value">75%</div>
-                            <div class="stat-label">Cost Reduction</div>
+                            <div class="stat-value">~50</div>
+                            <div class="stat-label">Pages Output at Once</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-value">60%</div>
-                            <div class="stat-label">Time Saved</div>
+                            <div class="stat-value">4</div>
+                            <div class="stat-label">File Types Created</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-value">200K</div>
-                            <div class="stat-label">Context Window</div>
+                            <div class="stat-value">M365</div>
+                            <div class="stat-label">Connected to Your Work</div>
                         </div>
                     </div>
 
                     <div class="card card-accent">
                         <h3>What is Claude?</h3>
-                        <p>Claude is an AI assistant created by Anthropic, designed to be helpful, harmless, and honest. For marketing teams, Claude offers advanced capabilities including long-form content creation, strategic analysis, brand voice consistency, and now—the ability to create actual files like presentations, spreadsheets, and documents directly.</p>
-                        <p>Unlike basic chatbots, Claude understands nuance, maintains context across long conversations, and can process substantial documents including brand guidelines, competitive analyses, and campaign briefs up to 200,000 tokens (roughly 150,000 words).</p>
+                        <p>Claude is an AI assistant created by Anthropic, designed to be helpful, harmless, and honest. For marketing teams, Claude offers advanced capabilities including long-form content creation, strategic analysis, brand voice consistency, and the ability to create actual files like presentations, spreadsheets, and documents directly.</p>
+                        <p><strong>What does this mean practically?</strong> You can upload your entire brand guidelines, product catalog, and campaign history into a single conversation—Claude will remember and reference all of it. You can ask for a 50-page report and get it in one response. And with Microsoft 365 connected, Claude can search your SharePoint, email, and Teams without you uploading anything.</p>
                     </div>
 
                     <h2>Why Claude for Marketing?</h2>
@@ -1554,6 +1555,110 @@ For each recommendation, provide follower count, engagement rate if available, c
                 </section>
 
                 <!-- ==========================================
+                     SECTION: CONNECTORS
+                ========================================== -->
+                <section id="connectors" class="section">
+                    <h1 class="section-title">Microsoft 365 Connector</h1>
+                    <p class="section-subtitle">Access SharePoint, OneDrive, Outlook, and Teams directly in Claude</p>
+
+                    <div class="card card-dark">
+                        <h3>Enterprise Integration</h3>
+                        <p>TaylorMade has enabled the Microsoft 365 connector for Claude. This allows you to search and analyze your work content—documents, emails, calendar, and Teams conversations—directly within Claude without manually uploading files.</p>
+                        <p><strong>Available on:</strong> Team and Enterprise plans</p>
+                    </div>
+
+                    <h2>What You Can Do</h2>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">📁</div>
+                            <div class="feature-title">SharePoint & OneDrive</div>
+                            <div class="feature-desc">Search and analyze documents across sites and libraries. Find project specs, strategic plans, brand guidelines, and campaign materials without manual uploads.</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📧</div>
+                            <div class="feature-title">Outlook</div>
+                            <div class="feature-desc">Access email threads, analyze communication patterns, and extract insights from correspondence to understand project status, client feedback, or team alignment.</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">💬</div>
+                            <div class="feature-title">Microsoft Teams</div>
+                            <div class="feature-desc">Search through chat threads, meeting notes, and channel conversations to find decisions, track discussions, and surface important information.</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📅</div>
+                            <div class="feature-title">Calendar</div>
+                            <div class="feature-desc">Get insights from your calendar, understand meeting context, and help prepare for upcoming discussions.</div>
+                        </div>
+                    </div>
+
+                    <h2>Example Prompts</h2>
+                    <div class="prompt-box">
+                        <div class="prompt-header">
+                            <span class="prompt-label">SharePoint Search</span>
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        </div>
+                        <div class="prompt-content">Find all project proposals in our SharePoint site from the last quarter and summarize the key themes.</div>
+                    </div>
+
+                    <div class="prompt-box">
+                        <div class="prompt-header">
+                            <span class="prompt-label">Email Analysis</span>
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        </div>
+                        <div class="prompt-content">Review the email thread about the product launch and summarize outstanding action items.</div>
+                    </div>
+
+                    <div class="prompt-box">
+                        <div class="prompt-header">
+                            <span class="prompt-label">Teams Summary</span>
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        </div>
+                        <div class="prompt-content">Summarize the key decisions from yesterday's Teams chat in the marketing campaign channel.</div>
+                    </div>
+
+                    <div class="prompt-box">
+                        <div class="prompt-header">
+                            <span class="prompt-label">Cross-Platform Search</span>
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        </div>
+                        <div class="prompt-content">What's the current status of the Q1 driver launch? Check SharePoint for planning documents, Outlook for recent updates, and Teams for any discussions.</div>
+                    </div>
+
+                    <h2>Getting Started</h2>
+                    <div class="workflow-steps">
+                        <div class="workflow-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <div class="step-title">Check Your Access</div>
+                                <div class="step-desc">The Microsoft 365 connector is available on Team and Enterprise plans. Verify your plan includes connector access.</div>
+                            </div>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <div class="step-title">Authenticate</div>
+                                <div class="step-desc">Go to Settings → Connectors in Claude and connect your Microsoft 365 account. You'll sign in with your TaylorMade Microsoft credentials.</div>
+                            </div>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <div class="step-title">Start Asking Questions</div>
+                                <div class="step-desc">Claude will automatically detect when it needs to access your Microsoft 365 data. Just ask questions that reference your documents, emails, or conversations.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-info">
+                        <span class="alert-icon">🔒</span>
+                        <div class="alert-content">
+                            <div class="alert-title">Security Note</div>
+                            <p class="alert-text">Claude can only access Microsoft 365 data you already have permission to view. The connector respects all existing SharePoint permissions and security controls. It provides read-only access—Claude cannot modify, send, or delete anything.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==========================================
                      SECTION: CUSTOM STYLES
                 ========================================== -->
                 <section id="styles" class="section">
@@ -1971,8 +2076,141 @@ Create this as a downloadable Word document.</div>
                         </div>
                     </div>
                 </section>
-- Concrete suggestions for improvement
-- Revised version if rating is below 4</div>
+
+                <!-- ==========================================
+                     SECTION: PROMPTING GUIDE
+                ========================================== -->
+                <section id="prompts" class="section">
+                    <h1 class="section-title">Prompting Guide</h1>
+                    <p class="section-subtitle">How to get the best results from Claude</p>
+
+                    <div class="card card-accent">
+                        <h3>The Prompting Mindset</h3>
+                        <p>Claude isn't a search engine or a magic box—it's more like a very capable colleague who needs clear direction. The more context and specificity you provide, the better your results will be. Think of prompts as creative briefs: what would you give a skilled contractor to ensure they deliver exactly what you need?</p>
+                    </div>
+
+                    <h2>Prompting Best Practices</h2>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🎯</div>
+                            <div class="feature-title">Be Specific</div>
+                            <div class="feature-desc">Include word counts, format requirements, tone descriptions, and structural expectations. "Write a blog post" is weak; "Write a 1,200-word blog post with 5 sections" is strong.</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📝</div>
+                            <div class="feature-title">Provide Context</div>
+                            <div class="feature-desc">Share relevant background: who is the audience, what's the goal, where will this appear, what came before? Context shapes output quality dramatically.</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📋</div>
+                            <div class="feature-title">Give Examples</div>
+                            <div class="feature-desc">Show Claude what good looks like. Upload examples, paste samples, or describe the style of content you're trying to match.</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🔄</div>
+                            <div class="feature-title">Iterate</div>
+                            <div class="feature-desc">First drafts are starting points. Ask for revisions, adjustments, and alternatives. "Make it more conversational" or "Shorten by 30%" are valid follow-ups.</div>
+                        </div>
+                    </div>
+
+                    <h2>Prompt Structure Framework</h2>
+                    <div class="card">
+                        <p>For complex requests, use this structure to ensure completeness:</p>
+                        <div class="prompt-box">
+                            <div class="prompt-header">
+                                <span class="prompt-label">Prompt Template</span>
+                                <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            </div>
+                            <div class="prompt-content">ROLE: [Who should Claude be? e.g., "You are a senior copywriter at TaylorMade"]
+
+TASK: [What do you need? Be specific about deliverable]
+
+CONTEXT: [Background information, audience, goals, constraints]
+
+FORMAT: [Structure, length, style requirements]
+
+EXAMPLES: [What good looks like, or what to avoid]
+
+OUTPUT: [Exactly what you want back—file type, sections, etc.]</div>
+                        </div>
+                    </div>
+
+                    <h2>Common Prompting Patterns</h2>
+                    <div class="accordion">
+                        <div class="accordion-item">
+                            <button class="accordion-header" onclick="toggleAccordion(this)">
+                                <span class="accordion-title">Batch Content Generation</span>
+                                <span class="accordion-icon">+</span>
+                            </button>
+                            <div class="accordion-content">
+                                <p>Generate multiple variations efficiently:</p>
+                                <div class="prompt-box">
+                                    <div class="prompt-header">
+                                        <span class="prompt-label">Batch Request</span>
+                                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                                    </div>
+                                    <div class="prompt-content">Generate 10 Instagram captions for TaylorMade driver content. For each caption:
+
+- 100-150 characters
+- Include 1 emoji
+- End with a CTA
+- Vary the angles: technology, distance, forgiveness, tour validation, confidence
+
+Format as a numbered list I can copy directly.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-header" onclick="toggleAccordion(this)">
+                                <span class="accordion-title">A/B Test Variations</span>
+                                <span class="accordion-icon">+</span>
+                            </button>
+                            <div class="accordion-content">
+                                <p>Get multiple options to test:</p>
+                                <div class="prompt-box">
+                                    <div class="prompt-header">
+                                        <span class="prompt-label">A/B Variations</span>
+                                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                                    </div>
+                                    <div class="prompt-content">Write 5 email subject lines for our TP5 golf ball campaign, each with a different psychological angle:
+
+1. Curiosity-based
+2. Benefit-focused
+3. Social proof / authority
+4. Urgency / scarcity
+5. Question format
+
+Keep each under 50 characters. Indicate which you'd recommend testing first and why.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-header" onclick="toggleAccordion(this)">
+                                <span class="accordion-title">Adaptation / Localization</span>
+                                <span class="accordion-icon">+</span>
+                            </button>
+                            <div class="accordion-content">
+                                <p>Adapt content for different markets or platforms:</p>
+                                <div class="prompt-box">
+                                    <div class="prompt-header">
+                                        <span class="prompt-label">Localization Request</span>
+                                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                                    </div>
+                                    <div class="prompt-content">Adapt this US product launch email for the UK and Japanese markets.
+
+[Paste original email]
+
+For UK:
+- Adjust spelling and terminology
+- Modify any US-specific references
+- Adjust cultural tone as needed
+
+For Japan:
+- Provide Japanese translation
+- Adapt messaging for Japanese golf culture
+- Note any imagery or reference changes needed
+
+Flag any elements that may not translate well culturally.</div>
                                 </div>
                             </div>
                         </div>
@@ -2285,6 +2523,13 @@ TONE CALIBRATION:
                                     <td>Organization-wide</td>
                                 </tr>
                                 <tr>
+                                    <td><strong>Connectors</strong></td>
+                                    <td>—</td>
+                                    <td>—</td>
+                                    <td>Microsoft 365, Slack, etc.</td>
+                                    <td>Microsoft 365, Slack, etc.</td>
+                                </tr>
+                                <tr>
                                     <td><strong>Admin Controls</strong></td>
                                     <td>—</td>
                                     <td>—</td>
@@ -2338,7 +2583,8 @@ TONE CALIBRATION:
                                 <span class="accordion-icon">+</span>
                             </button>
                             <div class="accordion-content">
-                                <p>Designed for collaborative teams. Share Projects across team members, maintain consistent context, and benefit from admin controls. Includes file creation for all team members.</p>
+                                <p>Designed for collaborative teams. Share Projects across team members, maintain consistent context, and benefit from admin controls. Includes file creation and enterprise connectors (Microsoft 365, Slack) for all team members.</p>
+                                <p><strong>Pricing:</strong> $30/user/month (or $25/user/month billed annually). Minimum 5 users.</p>
                                 <p><strong>Best for:</strong> Marketing departments, agencies, and collaborative teams.</p>
                             </div>
                         </div>
@@ -2516,37 +2762,36 @@ TONE CALIBRATION:
                         </div>
                     </div>
 
-                    <h2>Success Metrics</h2>
-                    <div class="stats-grid">
-                        <div class="stat-card">
-                            <div class="stat-value">60%</div>
-                            <div class="stat-label">Time Savings Target</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-value">3×</div>
-                            <div class="stat-label">Content Volume</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-value">100%</div>
-                            <div class="stat-label">Team Adoption</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-value">90%</div>
-                            <div class="stat-label">Quality Score</div>
-                        </div>
+                    <h2>Measuring Success</h2>
+                    <div class="card">
+                        <h3>Establish Your Baseline First</h3>
+                        <p>Before rolling out Claude, document your current state so you can measure actual improvement:</p>
+                        <ul class="check-list">
+                            <li><strong>Time per deliverable:</strong> How long does it take to write a product description? A blog post? A social batch?</li>
+                            <li><strong>Content volume:</strong> How many pieces does your team produce per week/month?</li>
+                            <li><strong>Revision cycles:</strong> How many rounds of edits before content is approved?</li>
+                            <li><strong>Agency spend:</strong> What do you currently outsource and at what cost?</li>
+                        </ul>
                     </div>
 
-                    <h2>Measuring ROI</h2>
                     <div class="card">
-                        <p>Track these metrics to demonstrate Claude's value to stakeholders:</p>
+                        <h3>Track These Metrics Post-Implementation</h3>
                         <ul class="check-list">
-                            <li><strong>Time saved:</strong> Track hours spent on content creation before and after Claude adoption</li>
-                            <li><strong>Content volume:</strong> Measure increase in content output per team member</li>
-                            <li><strong>Quality consistency:</strong> Monitor brand voice adherence scores over time</li>
-                            <li><strong>Agency cost reduction:</strong> Track reduction in outsourced content work</li>
+                            <li><strong>Time savings:</strong> Compare time-to-completion for similar deliverables before and after Claude</li>
+                            <li><strong>Output increase:</strong> Measure change in content volume with same team size</li>
+                            <li><strong>Quality consistency:</strong> Track brand voice adherence and stakeholder approval rates</li>
+                            <li><strong>Cost impact:</strong> Document any reduction in agency or contractor spend</li>
                             <li><strong>Speed to market:</strong> Measure time from brief to published content</li>
-                            <li><strong>Revision cycles:</strong> Track whether AI-assisted content requires fewer revisions</li>
+                            <li><strong>Team adoption:</strong> Track active users and usage patterns across the team</li>
                         </ul>
+                    </div>
+
+                    <div class="alert alert-info">
+                        <span class="alert-icon">📊</span>
+                        <div class="alert-content">
+                            <div class="alert-title">Set Realistic Expectations</div>
+                            <p class="alert-text">Results vary by use case and team. Some tasks (like generating social post variations) see immediate efficiency gains. Others (like strategic documents) may see quality improvements rather than time savings. Measure what matters for your specific workflows.</p>
+                        </div>
                     </div>
 
                     <h2>Getting Help</h2>
