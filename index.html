@@ -814,7 +814,7 @@
                 <div class="sidebar-section">
                     <div class="sidebar-title">Enterprise</div>
                     <ul class="nav-list">
-                        <li><a href="#plans" class="nav-link" onclick="showSection('plans', event)"><i data-lucide="credit-card" class="nav-icon"></i>Plans & Pricing</a></li>
+                        <li><a href="#plans" class="nav-link" onclick="showSection('plans', event)"><i data-lucide="building" class="nav-icon"></i>Enterprise Plan</a></li>
                         <li><a href="#security" class="nav-link" onclick="showSection('security', event)"><i data-lucide="shield" class="nav-icon"></i>Security</a></li>
                         <li><a href="#implementation" class="nav-link" onclick="showSection('implementation', event)"><i data-lucide="rocket" class="nav-icon"></i>Implementation</a></li>
                     </ul>
@@ -1661,75 +1661,47 @@ ALWAYS INCLUDE:
                     </div>
                 </section>
 
-                <!-- SECTION: PLANS & PRICING -->
+                <!-- SECTION: PLANS -->
                 <section id="plans" class="section">
-                    <h1 class="section-title">Plans & Pricing</h1>
-                    <p class="section-subtitle">Understanding Claude access options for enterprise marketing teams</p>
+                    <h1 class="section-title">Enterprise Plan</h1>
+                    <p class="section-subtitle">TaylorMade's Claude Enterprise capabilities</p>
 
-                    <h2>Plan Comparison</h2>
-                    <div class="table-wrapper">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Feature</th>
-                                    <th>Pro ($20/mo)</th>
-                                    <th>Max ($100/mo)</th>
-                                    <th>Team ($30/user)</th>
-                                    <th>Enterprise</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>Message Limits</strong></td>
-                                    <td>Standard</td>
-                                    <td>5× Pro limits</td>
-                                    <td>Higher than Pro</td>
-                                    <td>Custom</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>File Creation</strong></td>
-                                    <td>—</td>
-                                    <td>✓</td>
-                                    <td>✓</td>
-                                    <td>✓</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Projects</strong></td>
-                                    <td>Personal only</td>
-                                    <td>Personal + sharing</td>
-                                    <td>Team sharing</td>
-                                    <td>Organization-wide</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Connectors (M365)</strong></td>
-                                    <td>—</td>
-                                    <td>—</td>
-                                    <td>✓</td>
-                                    <td>✓</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Admin Controls</strong></td>
-                                    <td>—</td>
-                                    <td>—</td>
-                                    <td>Basic</td>
-                                    <td>Full (SSO, SCIM)</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Data Training</strong></td>
-                                    <td>Opt-out available</td>
-                                    <td>Not used</td>
-                                    <td>Not used</td>
-                                    <td>Not used</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="card card-accent">
+                        <h3>Your Access</h3>
+                        <p>TaylorMade has an Enterprise agreement with Anthropic. All features below are available to you.</p>
                     </div>
 
-                    <div class="alert alert-info">
-                        <i data-lucide="lightbulb" class="alert-icon"></i>
-                        <div class="alert-content">
-                            <div class="alert-title">TaylorMade Recommendation</div>
-                            <p class="alert-text">For marketing teams, <strong>Team</strong> or <strong>Enterprise</strong> plans are recommended. They provide file creation, shared Projects, Microsoft 365 connectors, and ensure your marketing content isn't used for AI training.</p>
+                    <h2>What's Included</h2>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon"><i data-lucide="infinity" style="width:24px;height:24px;"></i></div>
+                            <div class="feature-title">Extended Limits</div>
+                            <div class="feature-desc">Higher message limits and priority access to all Claude models including Opus 4.5, Sonnet 4.5, and Haiku 4.5.</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon"><i data-lucide="file-down" style="width:24px;height:24px;"></i></div>
+                            <div class="feature-title">File Creation</div>
+                            <div class="feature-desc">Generate Excel, PowerPoint, Word, and PDF files directly from Claude.</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon"><i data-lucide="users" style="width:24px;height:24px;"></i></div>
+                            <div class="feature-title">Shared Projects</div>
+                            <div class="feature-desc">Organization-wide Project sharing for consistent context across teams.</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon"><i data-lucide="plug" style="width:24px;height:24px;"></i></div>
+                            <div class="feature-title">Microsoft 365 Connector</div>
+                            <div class="feature-desc">Search SharePoint, OneDrive, Outlook, and Teams directly within Claude.</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon"><i data-lucide="shield-check" style="width:24px;height:24px;"></i></div>
+                            <div class="feature-title">Data Privacy</div>
+                            <div class="feature-desc">Your conversations and uploads are never used to train Claude models.</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon"><i data-lucide="settings" style="width:24px;height:24px;"></i></div>
+                            <div class="feature-title">Admin Controls</div>
+                            <div class="feature-desc">SSO integration, SCIM provisioning, audit logs, and centralized management.</div>
                         </div>
                     </div>
                 </section>
