@@ -202,7 +202,6 @@
             display: none;
             animation: fadeIn 0.3s ease;
             width: 100%;
-            overflow: hidden;
         }
         
         .section.active { display: block; }
@@ -443,7 +442,7 @@
             background: var(--tm-black);
             color: var(--tm-white);
             padding: 20px;
-            margin: 16px 0;
+            margin: 24px 0 16px 0;
             position: relative;
             font-family: 'Courier New', monospace;
             font-size: 13px;
@@ -457,7 +456,7 @@
         .prompt-box::before {
             content: 'PROMPT';
             position: absolute;
-            top: -10px;
+            top: -12px;
             left: 16px;
             background: var(--tm-red);
             color: white;
@@ -466,6 +465,7 @@
             font-weight: 700;
             padding: 2px 8px;
             letter-spacing: 1px;
+            z-index: 1;
         }
         
         .copy-btn {
@@ -935,6 +935,7 @@
                 <div class="nav-section-title">Claude AI</div>
                 <a class="nav-item" data-section="claude">
                     <i data-lucide="brain"></i> Claude Overview
+                    <span class="nav-badge">LICENSED</span>
                 </a>
                 <a class="nav-item" data-section="claude-workflows">
                     <i data-lucide="workflow"></i> Marketing Workflows
@@ -945,10 +946,11 @@
                 <div class="nav-section-title">Google Gemini</div>
                 <a class="nav-item" data-section="gemini">
                     <i data-lucide="sparkle"></i> Gemini Enterprise
+                    <span class="nav-badge">LICENSED</span>
                 </a>
                 <a class="nav-item" data-section="nano-banana">
                     <i data-lucide="image"></i> Nano Banana Pro
-                    <span class="nav-badge">IMAGES</span>
+                    <span class="nav-badge">LICENSED</span>
                 </a>
             </div>
             
