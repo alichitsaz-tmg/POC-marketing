@@ -186,17 +186,18 @@
         
         /* MAIN CONTENT - full width since sidebar is collapsed by default */
         .main {
-            margin-left: 0;
             padding: 32px;
             max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto;
+            overflow: hidden;
         }
         
-        /* SECTIONS */
+        /* Ensure all content stays within bounds */
         .section {
             display: none;
             animation: fadeIn 0.3s ease;
+            width: 100%;
+            overflow: hidden;
         }
         
         .section.active { display: block; }
@@ -560,6 +561,8 @@
         .accordion {
             border: 1px solid var(--tm-gray-200);
             margin: 16px 0;
+            width: 100%;
+            max-width: 100%;
         }
         
         .accordion-item { border-bottom: 1px solid var(--tm-gray-200); }
@@ -978,6 +981,10 @@
                             <div class="quick-ref-value"><a href="https://tmgolf.freshservice.com/a/catalog/request-items/553" target="_blank">Service Catalog #553</a></div>
                         </div>
                         <div class="quick-ref-item">
+                            <div class="quick-ref-label">Request Gemini License</div>
+                            <div class="quick-ref-value"><a href="https://tmgolf.freshservice.com/support/catalog/items/588" target="_blank">Service Catalog #588</a></div>
+                        </div>
+                        <div class="quick-ref-item">
                             <div class="quick-ref-label">Direct IT Contact</div>
                             <div class="quick-ref-value"><a href="mailto:ali.chitsaz@taylormadegolf.com">ali.chitsaz@taylormadegolf.com</a></div>
                         </div>
@@ -993,12 +1000,12 @@
                             <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Microsoft_365_Copilot_Icon.svg" class="tool-logo" alt="Copilot">
                             <div>
                                 <div class="tool-name">Copilot Chat</div>
-                                <div class="tool-type">Microsoft • Free with M365</div>
+                                <div class="tool-type">Microsoft • Included with M365</div>
                             </div>
                         </div>
                         <div class="tool-desc">Web-grounded AI assistant available to everyone. Great for brainstorming, research, and general questions.</div>
                         <div class="tool-tags">
-                            <span class="tag success">FREE</span>
+                            <span class="tag success">INCLUDED</span>
                             <span class="tag">WEB SEARCH</span>
                             <span class="tag">GENERAL USE</span>
                         </div>
@@ -1046,8 +1053,8 @@
                         </div>
                         <div class="tool-desc">Studio-quality image generation and editing. Create marketing visuals, mockups, and localized content.</div>
                         <div class="tool-tags">
-                            <span class="tag info">IMAGES</span>
-                            <span class="tag">EDITING</span>
+                            <span class="tag primary">LICENSED</span>
+                            <span class="tag">IMAGES</span>
                             <span class="tag">TEXT-IN-IMAGE</span>
                         </div>
                     </div>
@@ -1136,14 +1143,6 @@
                             <p>Also available at: Edge browser sidebar (Copilot icon), Windows 11 (Win + C), or Teams app</p>
                         </div>
                     </div>
-                    
-                    <div class="step">
-                        <div class="step-number"></div>
-                        <div class="step-content">
-                            <div class="step-title">Google Gemini (Everyone)</div>
-                            <p>Go to <strong>gemini.google.com</strong>. Sign in with your Google account. Access to Nano Banana Pro image generation is included.</p>
-                        </div>
-                    </div>
                 </div>
                 
                 <h2>Licensed Tools (Request Access)</h2>
@@ -1156,6 +1155,15 @@
                             <div class="step-title">Claude AI</div>
                             <p>Request access: <a href="https://tmgolf.freshservice.com/a/catalog/request-items/575" target="_blank">Service Catalog #575</a></p>
                             <p>Once approved, go to <strong>claude.ai</strong> and sign in with your TaylorMade email.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number"></div>
+                        <div class="step-content">
+                            <div class="step-title">Google Gemini (includes Nano Banana Pro)</div>
+                            <p>Request access: <a href="https://tmgolf.freshservice.com/support/catalog/items/588" target="_blank">Service Catalog #588</a></p>
+                            <p>Once approved, go to <strong>gemini.google.com</strong> and sign in with your TaylorMade email.</p>
                         </div>
                     </div>
                     
@@ -2015,7 +2023,73 @@ Keep it visual with minimal text per slide. Use TaylorMade's confident, performa
                     </div>
                 </div>
             </section>
-)</li>
+            <!-- ========== CLAUDE OVERVIEW SECTION ========== -->
+            <section class="section" id="claude">
+                <h1>Claude AI</h1>
+                <p class="subtitle">Anthropic's AI assistant for long-form writing, strategy, and analysis</p>
+                
+                <div class="quick-ref">
+                    <div class="quick-ref-title">Quick Reference</div>
+                    <div class="quick-ref-grid">
+                        <div class="quick-ref-item">
+                            <div class="quick-ref-label">Access</div>
+                            <div class="quick-ref-value"><a href="https://claude.ai" target="_blank">claude.ai</a></div>
+                        </div>
+                        <div class="quick-ref-item">
+                            <div class="quick-ref-label">Cost</div>
+                            <div class="quick-ref-value">Licensed (request access)</div>
+                        </div>
+                        <div class="quick-ref-item">
+                            <div class="quick-ref-label">Best For</div>
+                            <div class="quick-ref-value">Long-form content, brand voice</div>
+                        </div>
+                        <div class="quick-ref-item">
+                            <div class="quick-ref-label">Request License</div>
+                            <div class="quick-ref-value"><a href="https://tmgolf.freshservice.com/a/catalog/request-items/575" target="_blank">Service Catalog #575</a></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2>Why Claude for Marketing?</h2>
+                <p>Claude excels at tasks that require nuance, brand consistency, and longer-form thinking:</p>
+                <ul>
+                    <li><strong>Long-form writing</strong> — Blog posts, articles, email sequences</li>
+                    <li><strong>Brand voice</strong> — Learns and maintains your tone across content</li>
+                    <li><strong>Nuanced editing</strong> — Rewrites that preserve meaning while improving clarity</li>
+                    <li><strong>Strategic analysis</strong> — Competitive research, positioning frameworks</li>
+                    <li><strong>Large context</strong> — Can work with 200K tokens (~150K words) of context</li>
+                </ul>
+                
+                <h2>Key Features</h2>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <span>Projects (Organized Workspaces)</span>
+                            <i data-lucide="chevron-down"></i>
+                        </div>
+                        <div class="accordion-body">
+                            <p>Projects let you organize conversations by topic and maintain persistent context:</p>
+                            <ul>
+                                <li>Create projects for ongoing campaigns, product lines, or content types</li>
+                                <li>Add "Project Knowledge" — documents that Claude references in every conversation</li>
+                                <li>Set custom instructions that apply to all chats in the project</li>
+                            </ul>
+                            <p><strong>Marketing example:</strong> Create a "TaylorMade Brand Voice" project with your brand guidelines, then all conversations in that project will follow them.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <span>File Uploads</span>
+                            <i data-lucide="chevron-down"></i>
+                        </div>
+                        <div class="accordion-body">
+                            <p>Claude can read and analyze uploaded files:</p>
+                            <ul>
+                                <li>PDFs (marketing reports, competitor materials)</li>
+                                <li>Word documents (drafts for editing)</li>
+                                <li>Images (analyze competitor ads, review creative)</li>
+                                <li>Spreadsheets (campaign data, customer research)</li>
                             </ul>
                             <p>Click the paperclip icon or drag files into the chat to upload.</p>
                         </div>
@@ -2431,19 +2505,19 @@ Make it actionable—a creative team should be able to work from this.</div>
                     <div class="quick-ref-grid">
                         <div class="quick-ref-item">
                             <div class="quick-ref-label">Access</div>
-                            <div class="quick-ref-value">gemini.google.com</div>
+                            <div class="quick-ref-value"><a href="https://gemini.google.com" target="_blank">gemini.google.com</a></div>
                         </div>
                         <div class="quick-ref-item">
                             <div class="quick-ref-label">Cost</div>
-                            <div class="quick-ref-value">Free tier available</div>
+                            <div class="quick-ref-value">Licensed (request access)</div>
                         </div>
                         <div class="quick-ref-item">
                             <div class="quick-ref-label">Key Feature</div>
                             <div class="quick-ref-value">Nano Banana Pro (images)</div>
                         </div>
                         <div class="quick-ref-item">
-                            <div class="quick-ref-label">Best For</div>
-                            <div class="quick-ref-value">Image gen + Google integration</div>
+                            <div class="quick-ref-label">Request License</div>
+                            <div class="quick-ref-value"><a href="https://tmgolf.freshservice.com/support/catalog/items/588" target="_blank">Service Catalog #588</a></div>
                         </div>
                     </div>
                 </div>
@@ -2542,7 +2616,7 @@ Make it actionable—a creative team should be able to work from this.</div>
                     <div class="quick-ref-grid">
                         <div class="quick-ref-item">
                             <div class="quick-ref-label">Access</div>
-                            <div class="quick-ref-value">gemini.google.com</div>
+                            <div class="quick-ref-value"><a href="https://gemini.google.com" target="_blank">gemini.google.com</a></div>
                         </div>
                         <div class="quick-ref-item">
                             <div class="quick-ref-label">Model</div>
@@ -2553,8 +2627,8 @@ Make it actionable—a creative team should be able to work from this.</div>
                             <div class="quick-ref-value">Marketing visuals, mockups</div>
                         </div>
                         <div class="quick-ref-item">
-                            <div class="quick-ref-label">Key Differentiator</div>
-                            <div class="quick-ref-value">Text rendering in images</div>
+                            <div class="quick-ref-label">Request License</div>
+                            <div class="quick-ref-value"><a href="https://tmgolf.freshservice.com/support/catalog/items/588" target="_blank">Service Catalog #588</a></div>
                         </div>
                     </div>
                 </div>
