@@ -93,14 +93,14 @@
         
         /* LAYOUT */
         .layout {
-            display: flex;
+            display: block;
             margin-top: 64px;
             min-height: calc(100vh - 64px);
         }
         
-        /* SIDEBAR */
+        /* SIDEBAR - collapsible */
         .sidebar {
-            width: 280px;
+            width: 240px;
             background: var(--tm-white);
             border-right: 1px solid var(--tm-gray-200);
             position: fixed;
@@ -109,6 +109,29 @@
             bottom: 0;
             overflow-y: auto;
             padding: 24px 0;
+            z-index: 100;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .sidebar.open {
+            transform: translateX(0);
+        }
+        
+        /* Overlay when sidebar is open */
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 64px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.3);
+            z-index: 99;
+        }
+        
+        .sidebar-overlay.active {
+            display: block;
         }
         
         .nav-section {
@@ -161,12 +184,13 @@
             padding: 2px 6px;
         }
         
-        /* MAIN CONTENT */
+        /* MAIN CONTENT - full width since sidebar is collapsed by default */
         .main {
-            flex: 1;
-            margin-left: 280px;
-            padding: 32px 48px;
-            max-width: 1200px;
+            margin-left: 0;
+            padding: 32px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         /* SECTIONS */
@@ -345,6 +369,12 @@
             font-size: 14px;
         }
         
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
         .comparison-table th {
             background: var(--tm-black);
             color: white;
@@ -413,6 +443,9 @@
             font-size: 13px;
             line-height: 1.5;
             white-space: pre-wrap;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            overflow-x: auto;
         }
         
         .prompt-box::before {
@@ -723,12 +756,115 @@
             font-family: 'Courier New', monospace;
             font-size: 13px;
         }
+        
+        /* HAMBURGER MENU - always visible */
+        .menu-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 8px;
+            margin-right: 8px;
+        }
+        
+        .menu-toggle:hover {
+            background: var(--tm-gray-800);
+        }
+        
+        .menu-toggle i {
+            width: 24px;
+            height: 24px;
+        }
+        
+        /* RESPONSIVE STYLES */
+        @media (max-width: 600px) {
+            .header-search {
+                display: none;
+            }
+            
+            .main {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-search {
+                display: none;
+            }
+            
+            .header-title {
+                font-size: 14px;
+            }
+            
+            h1 {
+                font-size: 32px;
+            }
+            
+            h2 {
+                font-size: 24px;
+            }
+            
+            .quick-ref-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tool-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-table {
+                font-size: 12px;
+            }
+            
+            .comparison-table th,
+            .comparison-table td {
+                padding: 8px;
+            }
+            
+            .tabs {
+                flex-wrap: wrap;
+            }
+            
+            .tab {
+                padding: 8px 16px;
+                font-size: 13px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .main {
+                padding: 16px;
+            }
+            
+            .card {
+                padding: 16px;
+            }
+            
+            .prompt-box {
+                padding: 16px;
+                font-size: 12px;
+            }
+            
+            .header-title {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- HEADER -->
     <header class="header">
         <div class="header-left">
+            <button class="menu-toggle" onclick="toggleSidebar()" aria-label="Toggle menu">
+                <i data-lucide="menu"></i>
+            </button>
             <img src="https://www.taylormadegolf.com/on/demandware.static/Sites-TMaG-Site/-/default/dw8e92b9c3/images/logo.svg" alt="TaylorMade" class="logo">
             <span class="header-title">AI Marketing Guide</span>
         </div>
@@ -737,6 +873,9 @@
             <input type="text" placeholder="Search guide..." id="searchInput">
         </div>
     </header>
+    
+    <!-- Sidebar overlay for mobile -->
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
 
     <div class="layout">
         <!-- SIDEBAR -->
@@ -3603,6 +3742,24 @@ Format this as a professional brief document.</div>
         // Initialize Lucide icons
         lucide.createIcons();
         
+        // Sidebar toggle for mobile
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            const overlay = document.querySelector('.sidebar-overlay');
+            sidebar.classList.toggle('open');
+            overlay.classList.toggle('active');
+        }
+        
+        // Close sidebar when navigating on mobile
+        function closeSidebarOnMobile() {
+            if (window.innerWidth <= 1024) {
+                const sidebar = document.querySelector('.sidebar');
+                const overlay = document.querySelector('.sidebar-overlay');
+                sidebar.classList.remove('open');
+                overlay.classList.remove('active');
+            }
+        }
+        
         // Navigation
         function navigateTo(sectionId) {
             // Update nav
@@ -3618,6 +3775,9 @@ Format this as a professional brief document.</div>
                 section.classList.remove('active');
             });
             document.getElementById(sectionId).classList.add('active');
+            
+            // Close sidebar on mobile
+            closeSidebarOnMobile();
             
             // Scroll to top
             window.scrollTo(0, 0);
